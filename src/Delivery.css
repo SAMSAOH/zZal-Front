@@ -1,0 +1,14 @@
+.delivery{
+	width: 100%;
+}
+.delivery section{
+	width: 90%;
+}
+.delivery #icon{
+	font-size: 150px;
+	text-align: center;
+	opacity: 60%;
+}
+.white-btn{
+	border: solid 3px white;
+}
