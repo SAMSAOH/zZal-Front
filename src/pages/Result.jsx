@@ -1,42 +1,34 @@
-import { useState } from "react";
-import { questionList } from "../assets/objects/questionList";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import AudioPart from "../components/Result/AudioPart";
+import Header from "../components/Result/Header";
 import KakaoModal from "../components/Result/KakaoModal";
+import Question from "../components/Result/Question";
+import ShareBtn from "../components/Result/ShareBtn";
+import Will from "../components/Result/Will";
 import "../Result.css";
 const Result = () => {
+	const { willId } = useParams();
 	const [isOpen, setIsOpen] = useState(false);
 	const handleClickDelivery = () => {
 		setIsOpen(true);
 	};
-	const handleAudioPlay = () => {
-		const ad = document.getElementById("record");
-		ad.play();
-	};
+	const [resultContent, setResultContent] = useState({});
+
+	useEffect(() => {
+		axios.get(`/will/${willId}`).then((res) => setResultContent(res.data));
+	}, []);
+
 	return (
 		<>
 			<div className="result container result-container">
-				<div className="label">
-					<h2>{}의 유서</h2>
-					<span>{"2022-03-05"}</span>
-				</div>
-				{questionList.map((q, idx) => (
-					<section className="question-wrapper">
-						<h3>Q{idx + 1 + "." + q}</h3>
-						<span>{"내용"}</span>
-					</section>
-				))}
-				<section>
-					<h3 className="yellow-text">나의 유서</h3>
-					<hr />
-					<span>{""}</span>
-				</section>
-				<section>
-					<h2 className="yellow-text row-container" onClick={handleAudioPlay}>
-						음성 유서 <img src="./img/speaker.png" />
-					</h2>
-					<audio src="" id="record" />
-				</section>
+				<Header owner={resultContent.owner} />
+				<Question resultContent={resultContent} />
+				<Will content={resultContent.content} />
+				<AudioPart resultContent={resultContent} />
 				<div className="row-container btn-wrapper">
-					<button className="border-btn blue-btn">공유하기</button>
+					<ShareBtn />
 					<button
 						className="border-btn green-btn"
 						onClick={handleClickDelivery}
