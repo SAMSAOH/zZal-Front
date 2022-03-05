@@ -36,6 +36,7 @@ const WriteIndex = () => {
 								className="qnaInput"
 								value={input}
 								onChange={handleChange}
+								
 							/>
 						</div>
 							<Link to={nextUrl} className="nextBtn">	다음
