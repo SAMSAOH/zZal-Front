@@ -9,10 +9,10 @@ const WriteWill = () => {
             <div className='writewillTitle'> &gt;&gt;</div>
         </div>
         <div className="writevoiceBox">
-            <div className='writevoiceTitleBox'>
+            
             <img src="../img/mic.png"></img>
-            <span className='writevoiceTitle'>음성 유서 남기기</span>
-            </div>
+            <div className='writevoiceTitle'>음성 유서 남기기</div>
+       
             <div className='writevoice-wrapper'></div>
         </div>
         <div className='blue-btn writeBlueBtn'>작성 완료</div>
