@@ -1,33 +1,40 @@
-.App{
-    text-align: center;
+.write{
+    font-size: x-large;
+    gap: 20px;
+    color: white;
+    flex: 0.8;
+    justify-content: flex-end;
+   
 }
-.container{
-    width: 390px;
-    height: 844px;
-    background-color: #05037b;
-    margin: 0 auto;
-    padding: 21px 18px;
-    
-}
-.innerContainer{
-    border: solid 5px #fff;
-    height: 820px;
-    position: relative;
-}
-.writeIndexBox{
-    width: 100%;
-    height: 237px;
-    border: solid 2px #fff;
-    position: absolute;
-    bottom: 0;
+
+.writeLine{
+    width:100%;
+    border-top: solid 5px #fff;
+	display: flex;
+	justify-content: center;
+	margin-top: 5%;
 }
 .writeIndexTextBox{
-    width: 336px;
+    width: 100%;
     height: 205px;
-    margin: 15px 20px;
-  background-color: #2bc94d;
+    margin: 10px 15px;
+    padding: 10px 10px;
+    background-color: #2bc94d;
+    position: relative;
 }
+.question{
+    color: #F5DE0E;
+    font-size: 30px;
+}
+
 .qnaInput{
     background-color:transparent;
     border: 0;
+}
+.nextBtn{
+    color: #F5DE0E;
+    font-size: 30px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
 }
