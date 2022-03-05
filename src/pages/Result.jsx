@@ -31,7 +31,7 @@ const Result = () => {
 				</section>
 				<section>
 					<h2 className="yellow-text row-container" onClick={handleAudioPlay}>
-						음성 유서 <img src="speaker.png" />
+						음성 유서 <img src="./img/speaker.png" />
 					</h2>
 					<audio src="" id="record" />
 				</section>

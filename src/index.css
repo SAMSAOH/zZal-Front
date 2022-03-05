@@ -43,7 +43,7 @@ code {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-image: url('/public/bg_jet.png');
+	background-image: url('/public/img/bg_jet.png');
 	background-size: 150px;
 	background-repeat: no-repeat;
   background-position: 50px 300px;
@@ -87,4 +87,7 @@ code {
 .green-btn{
 	background-color: transparent;
 	border: solid 5px #2BC94D;
+}
+input{
+  all: unset;
 }
