@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import "../Mypage.css";
 
@@ -8,6 +9,9 @@ const MyPage = () => {
         {date:"2022-03-05"},
         {date:"2023-03-05"},
     ])
+    useEffect(()=>{
+        axios.get("/{userid}")
+    })
     const renderWills=wills.map((will)=>{
         return(
             <div className="renderWills">
@@ -23,7 +27,6 @@ const MyPage = () => {
        <div className="myPageTitle">
 			<div>유서함</div>
 		</div>
-        
         <div className="myPageMap">{renderWills}</div>
         <button className="blue-btn myPageBlueBtn">작성 완료</button>
     </div>
