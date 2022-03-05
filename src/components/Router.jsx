@@ -6,7 +6,7 @@ const AppRouter = () => {
 	return (
 		<Router>
 			<Routes>
-				<Route path="/" element={<WriteIndex></WriteIndex>} />
+				<Route path="/" element={<></>} />
 				<Route path="/write" element={<></>}>
 					<Route path=":idx" element={<></>} />
 					<Route path="will" element={<></>} />
