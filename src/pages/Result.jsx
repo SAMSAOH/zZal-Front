@@ -4,17 +4,20 @@ import { useParams } from "react-router";
 import AudioPart from "../components/Result/AudioPart";
 import Header from "../components/Result/Header";
 import KakaoModal from "../components/Result/KakaoModal";
+import EditQuestion from "../components/Result/EditQuestion";
 import Question from "../components/Result/Question";
 import ShareBtn from "../components/Result/ShareBtn";
 import Will from "../components/Result/Will";
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation,Link } from 'react-router-dom'
 import "../Result.css";
 const Result = () => {
 	const { willId } = useParams();
 	const [isOpen, setIsOpen] = useState(false);
 	const location = useLocation()
 	const [isMyPage, setIsMyPage]=useState(false);
-	const [isYear, setIsYear]=useState(false);
+	const [isYear, setIsYear]=useState(true);
+	const [isEdit, setIsEdit]=useState(false);
+
 	const handleClickDelivery = () => {
 		setIsOpen(true);
 	};
@@ -30,21 +33,33 @@ const Result = () => {
             	setIsYear(true);
 			}
 		}
+		if(location.pathname.includes("edit")){
+			setIsEdit(true);
+		}
 	}, []);
 
 	return (
 		<>
 			<div className="result container result-container">
 				<Header owner={resultContent.owner} />
-				<Question resultContent={resultContent} />
+				{
+					isEdit
+					? <EditQuestion resultContent={resultContent}/>
+					: <Question resultContent={resultContent} /> 
+				}
 				<Will content={resultContent.content} />
 				<AudioPart resultContent={resultContent} />
 				<div className="row-container btn-wrapper">
 					<ShareBtn />
 					{
-						isMyPage && isYear
+						isMyPage 
 						? 
-						<button className="border-btn green-btn">수정하기</button>
+						(isYear?
+							<Link to={`/mywill/edit/1`}>
+							<button className="border-btn green-btn">수정하기</button>
+							</Link>
+							: ""
+						)
 						: 	
 						<button
 							className="border-btn green-btn"
