@@ -1,5 +1,5 @@
 .main{
-	background-image: url('/public/bg_jet.png'),linear-gradient(#05037B, #060532);
+	background-image: url('/public/img/bg_jet.png'),linear-gradient(#05037B, #060532);
 	background-size: 150px, 100%;
 	background-repeat: no-repeat;
   	background-position: 50px 300px, 0;
