@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import RecordCountDown from "./RecordCountDown";
 import RecordTime from "./RecordTime";
 const RecordHandle = ({ setRecordFile }) => {

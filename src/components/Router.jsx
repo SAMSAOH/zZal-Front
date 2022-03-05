@@ -24,8 +24,10 @@ const AppRouter = () => {
 				<Route path="/login" element={<Login />} />
 				<Route path="/mypage" element={<MyPage />} />
 				<Route path="/mywill">
-					<Route path=":willId" element={<Result/>} />
-					<Route path="edit/:willId" element={<EditWill/>}></Route>
+					<Route path="edit">
+						<Route path=":willId" element={<EditWill />} />
+					</Route>
+					<Route path=":willId" element={<Result />} />
 				</Route>
 			</Routes>
 		</Router>
