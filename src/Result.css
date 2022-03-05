@@ -12,6 +12,7 @@
 }
 .result .btn-wrapper{
 	margin-top: 50px;
+	margin-bottom: 20px;
 }
 .modal{
 	position: absolute;
@@ -34,4 +35,7 @@
 }
 .yellow-text{
   color:#F5DE0E;
+}
+.result .row-container{
+	gap:10px
 }

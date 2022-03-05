@@ -1,5 +1,12 @@
 .delivery{
 	width: 100%;
+	background-image: url("/public/mail.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.delivery .text-wrapper{
+	flex: 0.9;
+	width: 80%;
 }
 .delivery section{
 	width: 90%;
