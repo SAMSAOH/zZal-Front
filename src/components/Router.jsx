@@ -16,10 +16,12 @@ const AppRouter = () => {
 					<Route path=":idx" element={<WriteIndex />} />
 					<Route path="will" element={<WriteWill />} />
 				</Route>
-				<Route path="/result" element={<Result />} />
+				<Route path="/result">
+					<Route path=":willId" element={<Result />} />
+				</Route>
 				<Route path="/delivery" element={<Delivery />} />
 				<Route path="/login" element={<Login />} />
-				<Route path="/myPage" element={<MyPage/>} />
+				<Route path="/myPage" element={<MyPage />} />
 			</Routes>
 		</Router>
 	);

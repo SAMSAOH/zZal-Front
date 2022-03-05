@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router";
 import Modal from "../commons/Modal";
 const DeliveryModal = ({ setIsOpen }) => {
-	const handleDelClick = () => {
-		setIsOpen(false);
+	const navigate = useNavigate();
+	const handleConfirmClick = () => {
+		navigate(`/myPage`);
 	};
 	return (
 		<Modal setIsOpen={setIsOpen}>
@@ -10,7 +12,7 @@ const DeliveryModal = ({ setIsOpen }) => {
 				<span>
 					{""} 으로 {""}에 배송 예정입니다.
 				</span>
-				<button className="border-btn white-btn" onClick={handleDelClick}>
+				<button className="border-btn white-btn" onClick={handleConfirmClick}>
 					확인
 				</button>
 			</div>

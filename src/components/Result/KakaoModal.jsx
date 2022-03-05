@@ -11,7 +11,7 @@ const KakaoModal = ({ setIsOpen }) => {
 					x
 				</button>
 				<span>배달하기 기능은 로그인 이후 가능합니다.</span>
-				<KakaoBtn />
+				<KakaoBtn redirectUri={"/delivery"} />
 			</div>
 		</Modal>
 	);

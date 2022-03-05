@@ -1,11 +1,35 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import DeliveryModal from "../components/Result/DeliveryModal";
 import "../Delivery.css";
+import { kakaoLoginHandler } from "../utils/KakaoLogin";
 const Delivery = () => {
 	const [isOpen, setIsOpen] = useState(false);
+	const { userId } = localStorage.getItem("userId");
 	const handleClickDelivery = () => {
-		setIsOpen(true);
+		axios
+			.post(`/will/delivery/${userId}`)
+			.then((res) => res.status === 200 && setIsOpen(true));
 	};
+
+	const location = useLocation();
+	const params = new URLSearchParams(location.search);
+	const code = params.get("code");
+
+	useEffect(() => {
+		if (code) {
+			kakaoLoginHandler(code, "/delivery").then((res) => {
+				window.localStorage.setItem(
+					"userId",
+					JSON.stringify({
+						userId: res.userId,
+					})
+				);
+			});
+		}
+	}, []);
+
 	return (
 		<>
 			<div className="delivery container">
