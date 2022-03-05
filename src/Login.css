@@ -1,0 +1,20 @@
+.login .btn-wrapper{
+	font-size: x-large;
+	gap: 20px;
+	color: white;
+	flex: 0.8;
+	justify-content: flex-end;
+}
+#kakao-btn{
+	background-color: transparent;
+	border: solid 5px #F5DE0E;
+	font-size: xx-large;
+}
+.logo-wrapper{
+	border-bottom: solid 5px white;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 50%;
+
+}
