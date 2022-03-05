@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/zZal-Front/static/css/main.e2920b19.css",
-    "main.js": "/zZal-Front/static/js/main.6671f9c7.js",
+    "main.js": "/zZal-Front/static/js/main.f2cd3b10.js",
     "static/media/bg_jet.png": "/zZal-Front/static/media/bg_jet.481c9ec3262bc517fdd6.png",
     "static/media/mail.png": "/zZal-Front/static/media/mail.a5c02b790902ceafcbf4.png",
     "index.html": "/zZal-Front/index.html",
     "main.e2920b19.css.map": "/zZal-Front/static/css/main.e2920b19.css.map",
-    "main.6671f9c7.js.map": "/zZal-Front/static/js/main.6671f9c7.js.map"
+    "main.f2cd3b10.js.map": "/zZal-Front/static/js/main.f2cd3b10.js.map"
   },
   "entrypoints": [
     "static/css/main.e2920b19.css",
-    "static/js/main.6671f9c7.js"
+    "static/js/main.f2cd3b10.js"
   ]
 }
