@@ -1,0 +1,40 @@
+.write{
+    font-size: x-large;
+    gap: 20px;
+    color: white;
+    flex: 0.8;
+    justify-content: flex-end;
+   
+}
+
+.writeLine{
+    width:100%;
+    border-top: solid 5px #fff;
+	display: flex;
+	justify-content: center;
+	margin-top: 5%;
+}
+.writeIndexTextBox{
+    width: 100%;
+    height: 205px;
+    margin: 10px 15px;
+    padding: 10px 10px;
+    background-color: #2bc94d;
+    position: relative;
+}
+.question{
+    color: #F5DE0E;
+    font-size: 30px;
+}
+
+.qnaInput{
+    background-color:transparent;
+    border: 0;
+}
+.nextBtn{
+    color: #F5DE0E;
+    font-size: 30px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
