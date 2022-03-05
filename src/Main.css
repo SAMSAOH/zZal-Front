@@ -18,8 +18,9 @@
 	margin-top: 20px;
 }
 .text-wrapper{
-	color: #36C6BD;
+	color: #F5DE0E;
 	justify-content: center;
+	line-height: 1.5;
 }
 .main .text-wrapper{
 	padding: 30vh 0;

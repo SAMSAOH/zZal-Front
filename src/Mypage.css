@@ -42,10 +42,12 @@
     bottom: 0;
     margin-bottom: 60px;
     text-align: center;
+    opacity: 80%;
 }
 .noticeText1{
     color: #f5de0e;
     font-size: 18px;
+    margin-bottom: 10px;
 }
 .noticeText2{
     color: white;

@@ -8,15 +8,15 @@ import EditQuestion from "../components/Result/EditQuestion";
 import Question from "../components/Result/Question";
 import ShareBtn from "../components/Result/ShareBtn";
 import Will from "../components/Result/Will";
-import { useNavigate, useLocation,Link } from 'react-router-dom'
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import "../Result.css";
 const Result = () => {
 	const { willId } = useParams();
 	const [isOpen, setIsOpen] = useState(false);
-	const location = useLocation()
-	const [isMyPage, setIsMyPage]=useState(false);
-	const [isYear, setIsYear]=useState(true);
-	const [isEdit, setIsEdit]=useState(false);
+	const location = useLocation();
+	const [isMyPage, setIsMyPage] = useState(false);
+	const [isYear, setIsYear] = useState(true);
+	const [isEdit, setIsEdit] = useState(false);
 
 	const handleClickDelivery = () => {
 		setIsOpen(true);
@@ -24,51 +24,71 @@ const Result = () => {
 	const [resultContent, setResultContent] = useState({});
 
 	useEffect(() => {
-		axios.get(`/will/detail/${willId}`).then((res) => setResultContent(res.data));
-		if(location.pathname.includes("mywill")) {
+		axios
+			.get(`/will/detail/${willId}`)
+			.then((res) => setResultContent(res.data));
+		if (location.pathname.includes("mywill")) {
 			setIsMyPage(true);
-			const updateDate=new Date(resultContent.createdDate);
-        	const now=new Date();
-        	if(updateDate.getMonth()<=now.getMonth() && updateDate.getDate()<=now.getDate()){
-            	setIsYear(true);
+			const updateDate = new Date(resultContent.createdDate);
+			const now = new Date();
+			if (
+				updateDate.getMonth() <= now.getMonth() &&
+				updateDate.getDate() <= now.getDate()
+			) {
+				setIsYear(true);
 			}
 		}
-		if(location.pathname.includes("edit")){
+		if (location.pathname.includes("edit")) {
 			setIsEdit(true);
 		}
 	}, []);
+	const navigate = useNavigate();
+	const handleEditClick = () => {
+		//navigate(`/mywill/edit/${willId}`, resultContent);
+		navigate(`/mywill/edit/${willId}`, {
+			state: {
+				owner: "김젼",
+				answer1: "ㅇ",
+				answer2: "ㅇ",
+				answer3: "ㅇ",
+				answer4: "ㅇ",
+				answer5: "ㅇ",
+				answer6: "ㅇ",
+				content: "ㅇ",
+			},
+		});
+	};
 
 	return (
 		<>
 			<div className="result container result-container">
 				<Header owner={resultContent.owner} />
-				{
-					isEdit
-					? <EditQuestion resultContent={resultContent}/>
-					: <Question resultContent={resultContent} /> 
-				}
+				{isEdit ? (
+					<EditQuestion resultContent={resultContent} />
+				) : (
+					<Question resultContent={resultContent} />
+				)}
 				<Will content={resultContent.content} />
 				<AudioPart resultContent={resultContent} />
 				<div className="row-container btn-wrapper">
 					<ShareBtn />
-					{
-						isMyPage 
-						? 
-						(isYear?
-							<Link to={`/mywill/edit/1`}>
-							<button className="border-btn green-btn">수정하기</button>
-							</Link>
-							: ""
+					{isMyPage ? (
+						isYear && (
+							<button
+								onClick={handleEditClick}
+								className="border-btn green-btn"
+							>
+								수정하기
+							</button>
 						)
-						: 	
+					) : (
 						<button
 							className="border-btn green-btn"
-							onClick={handleClickDelivery}>
+							onClick={handleClickDelivery}
+						>
 							배달하기
 						</button>
-
-					}
-					
+					)}
 				</div>
 			</div>
 			{isOpen && <KakaoModal setIsOpen={setIsOpen} />}
