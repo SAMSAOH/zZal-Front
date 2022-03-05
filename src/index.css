@@ -91,3 +91,6 @@ code {
 input{
   all: unset;
 }
+.qnaInput{
+	all: unset;
+}
