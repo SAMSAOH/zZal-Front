@@ -1,12 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router";
 import DeliveryModal from "../components/Result/DeliveryModal";
 import "../Delivery.css";
+import { setId } from "../modules/user";
 import { kakaoLoginHandler } from "../utils/KakaoLogin";
 const Delivery = () => {
 	const [isOpen, setIsOpen] = useState(false);
-	const { userId } = localStorage.getItem("userId");
+	/* redux로부터 userId 받기 */
+	const { userId } = useSelector((state) => state.user);
 	const handleClickDelivery = () => {
 		axios
 			.post(`/will/delivery/${userId}`)
@@ -17,15 +21,12 @@ const Delivery = () => {
 	const params = new URLSearchParams(location.search);
 	const code = params.get("code");
 
+	const dispatch = useDispatch();
 	useEffect(() => {
 		if (code) {
 			kakaoLoginHandler(code, "/delivery").then((res) => {
-				window.localStorage.setItem(
-					"userId",
-					JSON.stringify({
-						userId: res.userId,
-					})
-				);
+				/* redux에 userId 저장 */
+				dispatch(setId(res.userId));
 			});
 		}
 	}, []);
