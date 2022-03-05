@@ -19,7 +19,9 @@ const Modal = ({ setIsOpen, children }) => {
 	return (
 		<>
 			<div className="bg-container" />
-			<div ref={wrapperRef}>{children}</div>
+			<div ref={wrapperRef} className="center-container">
+				{children}
+			</div>
 		</>
 	);
 };
