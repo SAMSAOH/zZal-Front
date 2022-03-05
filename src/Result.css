@@ -36,6 +36,9 @@
 .yellow-text{
   color:#F5DE0E;
 }
+.modal .yellow-text{
+	text-align: center;
+}
 .result .row-container{
 	gap:10px
 }

@@ -1,32 +1,26 @@
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
 import KakaoBtn from "../components/commons/KakaoBtn";
 import LogoWrapper from "../components/Login/LogoWrapper";
 import "../Login.css";
+import { setId } from "../modules/user";
 import { kakaoLoginHandler } from "../utils/KakaoLogin";
 const Login = () => {
 	const location = useLocation();
 	const params = new URLSearchParams(location.search);
 	const code = params.get("code");
 
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	useEffect(() => {
 		if (code) {
 			kakaoLoginHandler(code, "/login").then((res) => {
-				loginInfoHandler(res.userId);
+				dispatch(setId(res.userId));
+				navigate("/myPage");
 			});
 		}
 	}, []);
-
-	const navigate = useNavigate();
-	const loginInfoHandler = (userId) => {
-		window.localStorage.setItem(
-			"userId",
-			JSON.stringify({
-				userId: userId,
-			})
-		);
-		navigate("/myPage");
-	};
 
 	return (
 		<div className="login white-border-container">
