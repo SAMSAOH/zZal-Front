@@ -10,7 +10,7 @@ const AppRouter = () => {
 		<Router>
 			<Routes>
 				<Route path="/" element={<Main />} />
-				<Route path="/write" element={<WriteWill/>}>
+				<Route path="/write" element={<></>}>
 					<Route path=":idx" element={<></>} />
 					<Route path="will" element={<WriteWill/>} />
 				</Route>
