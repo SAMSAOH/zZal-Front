@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import TextareaAutosize from "react-textarea-autosize";
@@ -14,6 +14,7 @@ const WriteIndex = () => {
 		const { value } = e.target;
 		setInput(value);
 	};
+	
 	return (
 		<>
 			<div className="write container white-border-container">
@@ -37,9 +38,8 @@ const WriteIndex = () => {
 								onChange={handleChange}
 							/>
 						</div>
-						<Link to={nextUrl} className="nextBtn">
-							다음
-						</Link>
+							<Link to={nextUrl} className="nextBtn">	다음
+							</Link>
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,8 @@
 import React from "react";
 import "../WriteWill.css";
 const WriteWill = () => {
+
+	
 	return (
 		<div className="container">
 			<div className="writewillBox">

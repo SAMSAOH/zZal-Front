@@ -37,3 +37,17 @@
     bottom: 0;
     margin-bottom: 60px;
 }
+.noticeText{
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 60px;
+    text-align: center;
+}
+.noticeText1{
+    color: #f5de0e;
+    font-size: 18px;
+}
+.noticeText2{
+    color: white;
+    size: 12px;
+}
