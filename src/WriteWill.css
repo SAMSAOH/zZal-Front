@@ -47,3 +47,6 @@
     display: flex;
     align-items: center;
 }
+.record-play{
+    flex: 1;
+}
