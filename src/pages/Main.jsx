@@ -2,9 +2,16 @@ import { Link } from "react-router-dom";
 import "../Main.css";
 const Main = () => {
 	return (
-		<div className="main bg-img-container center-container">
-			<img src="text1.png" width="200px" />
-			<img src="logo.png" width="250px" id="logo" />
+		<div className="main center-container">
+			<img src="text1.png" />
+			<div className="col-container logo-wrapper">
+				<img src="logo.png" width="250px" id="logo" />
+				<span className="sub-logo">
+					<img src={"z.png"} width="16px" />
+					세대 멸망 대비 프로젝트
+				</span>
+			</div>
+			<img src="randingImg.png" width="80%" />
 			<section className="col-container text-wrapper">
 				<li>◆◇ 나만의 유서 남기기</li>
 				<li>◆◇z세대는 디지털로 유서쓴다</li>

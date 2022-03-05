@@ -14,7 +14,10 @@ const Result = () => {
 	return (
 		<>
 			<div className="result container result-container">
-				<h2 className="label">유서</h2>
+				<div className="label">
+					<h2>{}의 유서</h2>
+					<span>{"2022-03-05"}</span>
+				</div>
 				{questionList.map((q, idx) => (
 					<section className="question-wrapper">
 						<h3>Q{idx + 1 + "." + q}</h3>
@@ -22,14 +25,15 @@ const Result = () => {
 					</section>
 				))}
 				<section>
-					<h3>나의 유서</h3>
+					<h3 className="yellow-text">나의 유서</h3>
 					<hr />
 					<span>{""}</span>
 				</section>
 				<section>
-					<h3 onClick={handleAudioPlay}>음성 유서 🔊</h3>
+					<h2 className="yellow-text row-container" onClick={handleAudioPlay}>
+						음성 유서 <img src="speaker.png" />
+					</h2>
 					<audio src="" id="record" />
-					<spna className="yellow-text">{"날짜"}</spna>
 				</section>
 				<div className="row-container btn-wrapper">
 					<button className="border-btn blue-btn">공유하기</button>
