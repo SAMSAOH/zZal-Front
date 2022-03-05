@@ -2,8 +2,8 @@ const ShareBtn = () => {
 	const handleShareClick = () => {
 		if (navigator.share) {
 			navigator.share({
-				title: "기록하며 성장하기",
-				text: "Hello World",
+				title: "지구에서 잘 놀다갑니다.",
+				text: "나의 유서",
 				url: window.location.href,
 			});
 		} else {
