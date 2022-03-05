@@ -11,7 +11,7 @@ const Login = () => {
 
 	useEffect(() => {
 		if (code) {
-			kakaoLoginHandler(code).then((res) => {
+			kakaoLoginHandler(code, "/login").then((res) => {
 				loginInfoHandler(res.userId);
 			});
 		}
@@ -33,7 +33,7 @@ const Login = () => {
 			<LogoWrapper />
 			<img src="./img/randingImg.png" width="80%" />
 			<div className="col-container btn-wrapper">
-				<KakaoBtn />
+				<KakaoBtn redirectUri={"/login"} />
 			</div>
 		</div>
 	);

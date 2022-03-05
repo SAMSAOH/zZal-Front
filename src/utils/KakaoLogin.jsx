@@ -1,10 +1,10 @@
 import axios from "axios";
 
-export const kakaoLoginHandler = async (code) => {
+export const kakaoLoginHandler = async (code, redirect_uri) => {
 	const data = {
 		grant_type: "authorization_code",
 		client_id: process.env.REACT_APP_KAKAO_REST_KEY,
-		redirect_uri: "http://localhost:3000/login",
+		redirect_uri: `http://localhost:3000${redirect_uri}`,
 		code: code,
 	};
 	const queryString = Object.keys(data)
