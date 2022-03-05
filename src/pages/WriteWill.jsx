@@ -1,21 +1,57 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import TextareaAutosize from "react-textarea-autosize";
+import RecordHandle from "../components/WriteWill/RecordHandle";
 import "../WriteWill.css";
 const WriteWill = () => {
+	const [input, setInput] = useState("");
+	const [recordFile, setRecordFile] = useState();
+	const handleChange = (e) => {
+		const { value } = e.target;
+		setInput(value);
+	};
 
-	
+	const { data } = useSelector((state) => state.question);
+	const navigate = useNavigate();
+	const handleSubmit = () => {
+		try {
+			const keys = Object.keys(data);
+			const formData = new FormData();
+			for (let key in keys) {
+				formData.append(key, data[key]);
+			}
+			formData.append("voiceMail", recordFile);
+			axios
+				.post("/will/create", formData)
+				.then((res) => navigate(`/result/${res.data.willId}`));
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	return (
 		<div className="container">
 			<div className="writewillBox">
 				<div className="writewillTitle">유서를 자유롭게 남겨보세요</div>
-				<div className="writewill-wrapper"></div>
-				<div className="writewillTitle"> &gt;&gt;</div>
+				<div className="row-container input-wrapper">
+					<div className="writewillTitle">{">>"}</div>
+					<TextareaAutosize
+						type="text"
+						name="text"
+						className="qnaInput"
+						value={input}
+						onChange={handleChange}
+						required
+					/>
+				</div>
 			</div>
 			<div className="writevoiceBox">
-				<img src="../img/mic.png"></img>
-				<div className="writevoiceTitle">음성 유서 남기기</div>
-				<div className="writevoice-wrapper"></div>
+				<RecordHandle recordFile={recordFile} setRecordFile={setRecordFile} />
 			</div>
-			<div className="blue-btn writeBlueBtn">작성 완료</div>
+			<button onClick={handleSubmit} className="blue-btn writeBlueBtn">
+				작성 완료
+			</button>
 		</div>
 	);
 };
