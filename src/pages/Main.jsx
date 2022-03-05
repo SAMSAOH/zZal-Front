@@ -5,9 +5,9 @@ import "../Main.css";
 const Main = () => {
 	return (
 		<div className="main center-container">
-			<img src="./img/text1.png" />
+			<img src="./img/text1.png" alt="randingText" />
 			<LogoWrapper />
-			<img src="./img/randingImg.png" width="80%" />
+			<img src="./img/randingImg.png" width="80%" alt="밀레니엄버그Img" />
 			<MentWrapper />
 			<section className="text-center-wrapper">
 				<h3>

@@ -14,7 +14,7 @@ const AudioPart = (resultContent) => {
 			<h2 className="yellow-text row-container">
 				음성 유서
 				<button onClick={handleAudioToggle}>
-					<img src="../img/speaker.png" />
+					<img src="../img/speaker.png" alt="스피커" />
 				</button>
 			</h2>
 		</section>
