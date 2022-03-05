@@ -1,12 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
-import userQuestion from './pages/userQuestion';
+import AppRouter from './components/Router';
 
 function App() {
-  return (
-    <div className="App">
-      
-    </div>
+  return (<AppRouter/>
   );
 }
 

@@ -1,0 +1,33 @@
+.App{
+    text-align: center;
+}
+.container{
+    width: 390px;
+    height: 844px;
+    background-color: #05037b;
+    margin: 0 auto;
+    padding: 21px 18px;
+    
+}
+.innerContainer{
+    border: solid 5px #fff;
+    height: 820px;
+    position: relative;
+}
+.writeIndexBox{
+    width: 100%;
+    height: 237px;
+    border: solid 2px #fff;
+    position: absolute;
+    bottom: 0;
+}
+.writeIndexTextBox{
+    width: 336px;
+    height: 205px;
+    margin: 15px 20px;
+  background-color: #2bc94d;
+}
+.qnaInput{
+    background-color:transparent;
+    border: 0;
+}
