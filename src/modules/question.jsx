@@ -23,7 +23,7 @@ export default function question(state = initialState, action) {
 		case SET_DATA:
 			return {
 				...state,
-				data: { ...state.data, [action.key]: action.value },
+				data: { ...state.data, [action.key]: action.data },
 			};
 		default:
 			return state;

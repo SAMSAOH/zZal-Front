@@ -1,46 +1,51 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
-import TextareaAutosize from "react-textarea-autosize";
-import { questionList } from "../assets/objects/questionList";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useNavigate, useParams } from "react-router";
+import Question from "../components/WriteIndex/Question";
+import ImgPart from "../components/WriteIndex/ImgPart";
+import InputPart from "../components/WriteIndex/InputPart";
+import { setData } from "../modules/question";
 import "../WriteIndex.css";
 const WriteIndex = () => {
 	const { idx } = useParams();
 	const paramIdx = parseInt(idx);
-	const nextUrl = paramIdx === 6 ? "/write/will" : `/write/${paramIdx + 1}`;
 
-	const [input, setInput] = useState("");
-	const handleChange = (e) => {
-		const { value } = e.target;
-		setInput(value);
+	const { data } = useSelector((state) => state.question);
+	const key = paramIdx === 1 ? "owner" : `answer${paramIdx - 1}`;
+	const [input, setInput] = useState(data[key]);
+	useEffect(() => {
+		setInput(data[key]);
+	}, [idx]);
+
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const nextUrl = paramIdx === 7 ? "/write/will" : `/write/${paramIdx + 1}`;
+
+	const handleNextClick = () => {
+		if (input === "") {
+			alert("내용을 입력해주세요.");
+			return;
+		}
+		dispatch(setData(key, input));
+		navigate(nextUrl);
 	};
-	
+
 	return (
 		<>
 			<div className="write container white-border-container">
+				<ImgPart idx={paramIdx} />
 				<div className="writeLine">
 					<div className="col-container writeIndexTextBox">
-						{" "}
-						<div className="question">
-							{paramIdx === 1
-								? `Q1. 당신의 이름은?`
-								: `Q${idx}.${questionList[idx - 1]}`}
-						</div>
-						<div className="row-container input-wrapper">
-							<span className="question" id="inputMark">
-								{">>"}
-							</span>
-							<TextareaAutosize
-								type="text"
-								name="text"
-								className="qnaInput"
-								value={input}
-								onChange={handleChange}
-								
-							/>
-						</div>
-							<Link to={nextUrl} className="nextBtn">	다음
-							</Link>
+						<Question idx={paramIdx} />
+						<InputPart
+							input={input}
+							setInput={setInput}
+							type={paramIdx === 1 ? "owner" : "answer"}
+						/>
+						<button onClick={handleNextClick} className="nextBtn">
+							다음
+						</button>
 					</div>
 				</div>
 			</div>

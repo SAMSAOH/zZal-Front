@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 import { useSelector } from "react-redux";
 import {Link } from "react-router-dom";
 import "../Mypage.css";
@@ -7,7 +8,7 @@ import "../Mypage.css";
 const MyPage = () => {
     //임시 데이터
     const [wills, setWills]=useState([
-        {willId:"1", createdDate:"2022-03-05"},
+        {willId:"1", createdDate:"2021-03-05"},
         {willId:"2", createdDate:"2021-03-05"},
     ])
     const [isYear, setIsYear]=useState(false);
@@ -18,14 +19,9 @@ const MyPage = () => {
         .then((res)=>{
             
             setWills(res.data);
-            //console.log(wills);
             const updateDate=new Date(wills[wills.length-1].createdDate);
-            //console.log(updateDate);
-        
             const now=new Date();
-            //console.log(now.getMonth());
-            //console.log(now.getDate());
-            if(updateDate.getMonth()===now.getMonth() && updateDate.getDate()===now.getDate()){
+            if(updateDate.getMonth()<=now.getMonth() && updateDate.getDate()<=now.getDate()){
                 setIsYear(true);
             }
         })
@@ -37,12 +33,13 @@ const MyPage = () => {
                     <div className='willsFormTitle'>
                         {will.createdDate} 유서
                     </div>
-                    <Link to={`/result/${will.willId}`}>
-                    <button className='willsFormBtn'> &gt;&gt;</button>
+                    <Link to={`/mywill/${will.willId}`}>
+                    <button className='willsFormBtn'>{">>"}</button>
                     </Link>
             </div>
         )
     });
+    
   return (
     <div className='container mypage'>
        <div className="myPageTitle">

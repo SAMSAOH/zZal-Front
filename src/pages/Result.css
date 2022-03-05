@@ -1,0 +1,37 @@
+.result-container{
+	width: 100%;
+}
+.result-container section{
+	width: 90%;
+}
+.question-wrapper{
+	margin-bottom: 20px;
+}
+.question-wrapper h3{
+	color: #F5DE0E;
+}
+.result .btn-wrapper{
+	margin-top: 50px;
+}
+.modal{
+	position: absolute;
+	margin: 5%;
+	background-color: #05037B;
+	top:30%;
+	z-index: 1;
+	gap: 30px;
+	align-items: center;
+}
+.modal #del-btn{
+	width: 100%;
+	text-align: right;
+}
+.label{
+	border-bottom: solid 3px white;
+	width: 90%;
+	text-align: center;
+	padding-bottom: 20px;
+}
+.yellow-text{
+  color:#F5DE0E;
+}

@@ -7,6 +7,8 @@ import Result from "../pages/Result";
 import WriteIndex from "../pages/WriteIndex";
 import WriteWill from "../pages/WriteWill";
 import MyPage from "../pages/MyPage";
+import MyWill from "../pages/MyWill";
+import EditWill from "../pages/EditWill";
 const AppRouter = () => {
 	return (
 		<Router>
@@ -21,7 +23,11 @@ const AppRouter = () => {
 				</Route>
 				<Route path="/delivery" element={<Delivery />} />
 				<Route path="/login" element={<Login />} />
-				<Route path="/myPage" element={<MyPage />} />
+				<Route path="/mypage" element={<MyPage />} />
+				<Route path="/mywill">
+					<Route path=":willId" element={<MyWill/>} />
+					<Route path="edit/:willId" element={<EditWill/>}></Route>
+				</Route>
 			</Routes>
 		</Router>
 	);
