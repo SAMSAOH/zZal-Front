@@ -1,0 +1,21 @@
+.delivery{
+	width: 100%;
+	background-image: url("/public/mail.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.delivery .text-wrapper{
+	flex: 0.9;
+	width: 80%;
+}
+.delivery section{
+	width: 90%;
+}
+.delivery #icon{
+	font-size: 150px;
+	text-align: center;
+	opacity: 60%;
+}
+.white-btn{
+	border: solid 3px white;
+}

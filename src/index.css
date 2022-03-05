@@ -25,6 +25,7 @@ code {
 .row-container{
 	display: flex;
 	flex-direction: row;
+  align-items: center;
 }
 .col-container{
 	display: flex;
@@ -51,6 +52,9 @@ code {
 .white-border-container{
   margin: 20px;
   border: solid 5px white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .border-container{
   padding: 25px;
