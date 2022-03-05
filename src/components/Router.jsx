@@ -7,7 +7,6 @@ import Result from "../pages/Result";
 import WriteIndex from "../pages/WriteIndex";
 import WriteWill from "../pages/WriteWill";
 import MyPage from "../pages/MyPage";
-import MyWill from "../pages/MyWill";
 import EditWill from "../pages/EditWill";
 const AppRouter = () => {
 	return (
