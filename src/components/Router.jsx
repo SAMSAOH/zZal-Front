@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Delivery from "../pages/Delivery";
 import Login from "../pages/Login";
 import Main from "../pages/Main";
 import Result from "../pages/Result";
@@ -11,12 +12,12 @@ const AppRouter = () => {
 		<Router>
 			<Routes>
 				<Route path="/" element={<Main />} />
-				<Route path="/write" element={<></>}>
-					<Route path=":idx" element={<></>} />
-					<Route path="will" element={<WriteWill/>} />
+				<Route path="/write">
+					<Route path=":idx" element={<WriteIndex />} />
+					<Route path="will" element={<WriteWill />} />
 				</Route>
 				<Route path="/result" element={<Result />} />
-				<Route path="/delivery" element={<></>} />
+				<Route path="/delivery" element={<Delivery />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/myPage" element={<MyPage/>} />
 			</Routes>
