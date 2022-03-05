@@ -1,0 +1,19 @@
+.btn-wrapper{
+	font-size: x-large;
+	gap: 20px;
+	color: white;
+}
+.text-wrapper{
+	color: #36C6BD;
+	justify-content: center;
+}
+.main .text-wrapper{
+	padding: 30vh 0;
+}
+.main #logo{
+	margin-top: 50px;
+margin-bottom: 50vh;
+}
+.text-center-wrapper{
+	text-align: center;
+}
