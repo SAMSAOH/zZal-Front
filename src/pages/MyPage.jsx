@@ -1,10 +1,27 @@
 import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getMyWill } from "../api/will";
+import { login } from "../modules/userSlice";
 import "../Mypage.css";
 
 const MyPage = () => {
+	const { search } = useLocation();
+	const params = new URLSearchParams(search);
+	const code = params.get("code");
+	const navigate = useNavigate();
+	useEffect(() => {
+		if (code) {
+			try {
+				login(code, "/myPage");
+			} catch (error) {
+				alert("로그인에 실패하였습니다.");
+				navigate(-1);
+			}
+		}
+	}, [code]);
+
 	const [wills, setWills] = useState();
 	const [isAfterYear, setIsAfterYear] = useState(false);
 

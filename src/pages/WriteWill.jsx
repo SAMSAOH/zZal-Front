@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import TextareaAutosize from "react-textarea-autosize";
 import { postWill } from "../api/will";
 import RecordHandle from "../components/WriteWill/RecordHandle";
-import { setData } from "../modules/question";
+import { setData } from "../modules/questionSlice";
 import "../WriteWill.css";
 const WriteWill = () => {
 	const [recordFile, setRecordFile] = useState();

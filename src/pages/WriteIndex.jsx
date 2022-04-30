@@ -5,8 +5,8 @@ import { useNavigate, useParams } from "react-router";
 import Question from "../components/WriteIndex/Question";
 import ImgPart from "../components/WriteIndex/ImgPart";
 import InputPart from "../components/WriteIndex/InputPart";
-import { setData } from "../modules/question";
 import "../WriteIndex.css";
+import { setData } from "../modules/questionSlice";
 const WriteIndex = () => {
 	const { idx } = useParams();
 	const paramIdx = parseInt(idx);
