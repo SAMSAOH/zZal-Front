@@ -20,14 +20,13 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
       setId: (state, { payload }) => {
-          const { userId } = payload;
-      state.userId = userId;
+        const { userId } = payload;
+        state.userId = userId;
     },
   },
   extraReducers: (builder) => {
     builder.addCase(login.fulfilled, (state, { payload }) => {
-      const { userId } = payload;
-      state.userId = userId;
+      state.userId = payload;
     })
   }
 })

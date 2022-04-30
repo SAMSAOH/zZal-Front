@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
 import { reqDelivery } from "../api/delivery";
 import DeliveryModal from "../components/Result/DeliveryModal";
@@ -17,10 +17,11 @@ const Delivery = () => {
 	const params = new URLSearchParams(location.search);
 	const code = params.get("code");
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	useEffect(() => {
 		if (code) {
 			try {
-				login(code, "/myPage");
+				dispatch(login({ code, redirectUrl: "/delivery" }));
 			} catch (error) {
 				alert("로그인에 실패하였습니다.");
 				navigate(-1);
