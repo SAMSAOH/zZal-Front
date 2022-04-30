@@ -23,7 +23,6 @@ const WriteWill = () => {
 			keys.map((key) => formData.append(key, data[key]));
 			formData.append("voiceMail", recordFile);
 			postWill(formData).then((data) => {
-				console.log(data);
 				navigate(`/result/${data.willId}`);
 			});
 		} catch (error) {

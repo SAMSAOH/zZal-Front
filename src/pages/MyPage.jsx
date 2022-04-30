@@ -5,12 +5,8 @@ import { getMyWill } from "../api/will";
 import "../Mypage.css";
 
 const MyPage = () => {
-	//임시 데이터
-	const [wills, setWills] = useState([
-		{ willId: "1", createdDate: "2021-03-05" },
-		{ willId: "2", createdDate: "2021-03-05" },
-	]);
-	const [isYear, setIsYear] = useState(false);
+	const [wills, setWills] = useState();
+	const [isAfterYear, setIsAfterYear] = useState(false);
 
 	const { userId } = useSelector((state) => state.user);
 	useEffect(() => {
@@ -22,7 +18,7 @@ const MyPage = () => {
 				updateDate.getMonth() <= now.getMonth() &&
 				updateDate.getDate() <= now.getDate()
 			) {
-				setIsYear(true);
+				setIsAfterYear(true);
 			}
 		});
 	}, []);
@@ -43,7 +39,7 @@ const MyPage = () => {
 				<div>유서함</div>
 			</div>
 			<div className="myPageMap">{renderWills}</div>
-			{isYear ? (
+			{isAfterYear ? (
 				<button className="blue-btn myPageBlueBtn">유서 남기기</button>
 			) : (
 				<div className="noticeText">

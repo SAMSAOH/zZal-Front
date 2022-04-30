@@ -15,7 +15,7 @@ const Result = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const { pathname } = useLocation();
 	const [isMyPage, setIsMyPage] = useState(false);
-	const [isYear, setIsYear] = useState(true);
+	const [isAfterYear, setIsAfterYear] = useState(true);
 	const [isEdit, setIsEdit] = useState(false);
 
 	const handleClickDelivery = () => {
@@ -32,7 +32,7 @@ const Result = () => {
 				updateDate.getMonth() <= now.getMonth() &&
 				updateDate.getDate() <= now.getDate()
 			) {
-				setIsYear(true);
+				setIsAfterYear(true);
 			}
 		}
 		if (pathname.includes("edit")) {
@@ -44,6 +44,7 @@ const Result = () => {
 	const handleEditClick = () => {
 		navigate(`/mywill/edit/${willId}`, resultContent);
 	};
+	
 	const QuestionContent = () => {
 		return isEdit ? (
 			<EditQuestion resultContent={resultContent} />
@@ -52,19 +53,19 @@ const Result = () => {
 		);
 	};
 	const ButtonContent = () => {
-		if (!isMyPage) {
+		if (isMyPage) {
 			return (
-				<button className="border-btn green-btn" onClick={handleClickDelivery}>
-					배달하기
-				</button>
-			);
-		} else {
-			return (
-				isYear && (
+				isAfterYear && (
 					<button onClick={handleEditClick} className="border-btn green-btn">
 						수정하기
 					</button>
 				)
+			);
+		} else {
+			return (
+				<button className="border-btn green-btn" onClick={handleClickDelivery}>
+					배달하기
+				</button>
 			);
 		}
 	};
