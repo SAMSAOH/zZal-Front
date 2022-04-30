@@ -12,7 +12,7 @@ const WriteIndex = () => {
 	const paramIdx = parseInt(idx);
 
 	const { data } = useSelector((state) => state.question);
-	const key = paramIdx === 1 ? "owner" : `answer${paramIdx - 1}`;
+	const key = paramIdx === 1 ? "ownerName" : `answer${paramIdx - 1}`;
 	const [input, setInput] = useState(data[key]);
 	useEffect(() => {
 		setInput(data[key]);
@@ -21,7 +21,6 @@ const WriteIndex = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const nextUrl = paramIdx === 7 ? "/write/will" : `/write/${paramIdx + 1}`;
-
 	const handleNextClick = () => {
 		if (input === "") {
 			alert("내용을 입력해주세요.");
@@ -32,24 +31,22 @@ const WriteIndex = () => {
 	};
 
 	return (
-		<>
-			<div className="write container white-border-container">
-				<ImgPart idx={paramIdx} />
-				<div className="writeLine">
-					<div className="col-container writeIndexTextBox">
-						<Question idx={paramIdx} />
-						<InputPart
-							input={input}
-							setInput={setInput}
-							type={paramIdx === 1 ? "owner" : "answer"}
-						/>
-						<button onClick={handleNextClick} className="nextBtn">
-							다음
-						</button>
-					</div>
+		<div className="write container white-border-container">
+			<ImgPart idx={paramIdx} />
+			<div className="writeLine">
+				<div className="col-container writeIndexTextBox">
+					<Question idx={paramIdx} />
+					<InputPart
+						input={input}
+						setInput={setInput}
+						type={paramIdx === 1 ? "ownerName" : "answer"}
+					/>
+					<button onClick={handleNextClick} className="nextBtn">
+						다음
+					</button>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 

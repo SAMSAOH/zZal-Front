@@ -7,13 +7,12 @@ const RecordHandle = ({ setRecordFile }) => {
 	const [onRec, setOnRec] = useState(false);
 	const [source, setSource] = useState();
 	const [analyser, setAnalyser] = useState();
-	const [audioUrl, setAudioUrl] = useState();
-	const [disabled, setDisabled] = useState(true);
+	const [hasRecord, setHasRecord] = useState(false);
 	const [time, setTime] = useState();
 
 	const [audio, setAudio] = useState();
 	const onRecAudio = () => {
-		setDisabled(true);
+		setHasRecord(false);
 		const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
 		const analyser = audioCtx.createScriptProcessor(0, 1, 1);
@@ -46,8 +45,13 @@ const RecordHandle = ({ setRecordFile }) => {
 					audioCtx.createMediaStreamSource(stream).disconnect();
 
 					mediaRecorder.ondataavailable = function (e) {
-						setAudioUrl(e.data);
 						setOnRec(false);
+						setAudio(new Audio(URL.createObjectURL(e.data)));
+						const sound = new File([e.data], "soundBlob", {
+							lastModified: new Date().getTime(),
+							type: "audio",
+						});
+						setRecordFile(sound);
 					};
 				} else {
 					setOnRec(true);
@@ -56,26 +60,24 @@ const RecordHandle = ({ setRecordFile }) => {
 		});
 	};
 	const offRecAudio = () => {
-		media.ondataavailable = function (e) {
-			setAudioUrl(e.data);
-			setOnRec(false);
-		};
-
-		stream.getAudioTracks().forEach(function (track) {
+		stream.getAudioTracks().forEach((track) => {
 			track.stop();
 		});
-
 		media.stop();
 
 		analyser.disconnect();
 		source.disconnect();
-		setAudio(new Audio(URL.createObjectURL(audioUrl)));
-		const sound = new File([audioUrl], "soundBlob", {
-			lastModified: new Date().getTime(),
-			type: "audio",
-		});
-		setDisabled(false);
-		setRecordFile(sound);
+		media.ondataavailable = async (e) => {
+			setOnRec(false);
+			setAudio(new Audio(URL.createObjectURL(e.data)));
+			const sound = new File([e.data], "soundBlob", {
+				lastModified: new Date().getTime(),
+				type: "audio",
+			});
+			setRecordFile(sound);
+		};
+
+		setHasRecord(true);
 	};
 
 	const [onPlay, setOnPlay] = useState(false);
@@ -89,7 +91,7 @@ const RecordHandle = ({ setRecordFile }) => {
 		setOnPlay((p) => !p);
 	};
 	return (
-		<>
+		<React.Fragment>
 			<div className="control-wrapper">
 				<button onClick={onRec ? offRecAudio : onRecAudio}>
 					<img src="../img/mic.png" alt="녹음Img" />
@@ -102,8 +104,7 @@ const RecordHandle = ({ setRecordFile }) => {
 					</span>
 				)}
 			</div>
-			<div className="writevoice-wrapper"></div>
-			{!disabled && (
+			{hasRecord && (
 				<div className="row-container">
 					<button
 						onClick={handlePlayClick}
@@ -117,7 +118,7 @@ const RecordHandle = ({ setRecordFile }) => {
 					{onPlay && <RecordCountDown time={time} setOnPlay={setOnPlay} />}
 				</div>
 			)}
-		</>
+		</React.Fragment>
 	);
 };
 

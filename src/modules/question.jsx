@@ -1,7 +1,7 @@
 const SET_DATA = "question/SET_DATA";
 const initialState = {
 	data: {
-		owner: "",
+		ownerName: "",
 		answer1: "",
 		answer2: "",
 		answer3: "",

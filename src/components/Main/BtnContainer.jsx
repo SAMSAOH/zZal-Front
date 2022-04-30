@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const BtnWrapper = () => {
+const BtnContainer = () => {
 	return (
 		<section className="col-container btn-wrapper">
 			<button className="solid-blue-btn">
@@ -13,4 +13,4 @@ const BtnWrapper = () => {
 	);
 };
 
-export default BtnWrapper;
+export default BtnContainer;

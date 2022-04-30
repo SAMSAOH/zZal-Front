@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
 import KakaoBtn from "../components/commons/KakaoBtn";
-import LogoWrapper from "../components/Login/LogoWrapper";
+import LogoWrapper from "../components/Login/Logo";
 import "../Login.css";
 import { setId } from "../modules/user";
 import { kakaoLoginHandler } from "../utils/KakaoLogin";

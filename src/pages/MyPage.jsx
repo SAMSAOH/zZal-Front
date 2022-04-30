@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getMyWill } from "../api/will";
 import "../Mypage.css";
 
 const MyPage = () => {
-	//임시 데이터
-	const [wills, setWills] = useState([
-		{ willId: "1", createdDate: "2021-03-05" },
-		{ willId: "2", createdDate: "2021-03-05" },
-	]);
-	const [isYear, setIsYear] = useState(false);
+	const [wills, setWills] = useState();
+	const [isAfterYear, setIsAfterYear] = useState(false);
 
 	const { userId } = useSelector((state) => state.user);
 	useEffect(() => {
-		axios.get(`/${userId}`).then((res) => {
+		getMyWill(userId).then((res) => {
 			setWills(res.data);
 			const updateDate = new Date(wills[wills.length - 1].createdDate);
 			const now = new Date();
@@ -23,13 +18,13 @@ const MyPage = () => {
 				updateDate.getMonth() <= now.getMonth() &&
 				updateDate.getDate() <= now.getDate()
 			) {
-				setIsYear(true);
+				setIsAfterYear(true);
 			}
 		});
 	}, []);
 	const renderWills = wills.map((will) => {
 		return (
-			<div className="renderWills">
+			<div className="renderWills" key={will.id}>
 				<div className="willsFormTitle">{will.createdDate} 유서</div>
 				<Link to={`/mywill/${will.willId}`}>
 					<button className="willsFormBtn">{">>"}</button>
@@ -44,7 +39,7 @@ const MyPage = () => {
 				<div>유서함</div>
 			</div>
 			<div className="myPageMap">{renderWills}</div>
-			{isYear ? (
+			{isAfterYear ? (
 				<button className="blue-btn myPageBlueBtn">유서 남기기</button>
 			) : (
 				<div className="noticeText">

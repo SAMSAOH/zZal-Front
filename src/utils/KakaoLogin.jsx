@@ -1,10 +1,11 @@
 import axios from "axios";
+import { requestMethod } from "../api/method";
 
 export const kakaoLoginHandler = async (code, redirect_uri) => {
 	const data = {
 		grant_type: "authorization_code",
 		client_id: process.env.REACT_APP_KAKAO_REST_KEY,
-		redirect_uri: `http://localhost:3000${redirect_uri}`,
+		redirect_uri: `${process.env.REACT_APP_LOCAL}${redirect_uri}`,
 		code: code,
 	};
 	const queryString = Object.keys(data)
@@ -20,15 +21,14 @@ export const kakaoLoginHandler = async (code, redirect_uri) => {
 				},
 			}
 		);
-		/* 서버 요청
-		await axios
-			.post("/auth/kakao", {
+		// 서버 요청
+		await requestMethod
+			.post("/signIn", {
 				kakaoAccessToken: data.access_token,
 			})
 			.then((res) => {
 				resolve({ userId: res.data.userId });
-			}); */
-		/* dummy data */
-		resolve({ userId: 1 });
+			});
+		// resolve({ userId: 1 });
 	});
 };
