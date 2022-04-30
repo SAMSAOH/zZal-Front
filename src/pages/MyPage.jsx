@@ -1,10 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useLayoutEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getMyWill } from "../api/will";
+import { login } from "../modules/userSlice";
 import "../Mypage.css";
 
 const MyPage = () => {
+	const { search } = useLocation();
+	const params = new URLSearchParams(search);
+	const code = params.get("code");
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	useLayoutEffect(() => {
+		if (code) {
+			try {
+				dispatch(login({ code, redirectUrl: "/myPage" }));
+			} catch (error) {
+				alert("로그인에 실패하였습니다.");
+				navigate(-1);
+			}
+		}
+	}, [code]);
+
 	const [wills, setWills] = useState();
 	const [isAfterYear, setIsAfterYear] = useState(false);
 
@@ -22,7 +40,7 @@ const MyPage = () => {
 			}
 		});
 	}, []);
-	const renderWills = wills.map((will) => {
+	const renderWills = wills?.map((will) => {
 		return (
 			<div className="renderWills" key={will.id}>
 				<div className="willsFormTitle">{will.createdDate} 유서</div>

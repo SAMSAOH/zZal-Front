@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { reqDelivery } from "../api/delivery";
 import DeliveryModal from "../components/Result/DeliveryModal";
 import "../Delivery.css";
-import { setId } from "../modules/user";
-import { kakaoLoginHandler } from "../utils/KakaoLogin";
+import { login } from "../modules/userSlice";
 const Delivery = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	/* redux로부터 userId 받기 */
@@ -17,16 +16,18 @@ const Delivery = () => {
 	const location = useLocation();
 	const params = new URLSearchParams(location.search);
 	const code = params.get("code");
-
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	useEffect(() => {
 		if (code) {
-			kakaoLoginHandler(code, "/delivery").then((res) => {
-				/* redux에 userId 저장 */
-				dispatch(setId(res.userId));
-			});
+			try {
+				dispatch(login({ code, redirectUrl: "/delivery" }));
+			} catch (error) {
+				alert("로그인에 실패하였습니다.");
+				navigate(-1);
+			}
 		}
-	}, []);
+	}, [code]);
 
 	return (
 		<>
