@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+import { RowContainer } from "../commons/Container";
 import RecordCountDown from "./RecordCountDown";
 import RecordTime from "./RecordTime";
 const RecordHandle = ({ setRecordFile }) => {
@@ -98,28 +100,34 @@ const RecordHandle = ({ setRecordFile }) => {
 				</button>
 				<div className="writevoiceTitle">음성 유서 남기기</div>
 				{onRec && (
-					<span className="row-container">
+					<Span>
 						녹음중
 						<RecordTime time={time} />
-					</span>
+					</Span>
 				)}
 			</div>
 			{hasRecord && (
-				<div className="row-container">
-					<button
-						onClick={handlePlayClick}
-						className="row-container record-play"
-					>
-						<div className="row-container">
+				<RowContainer>
+					<PlayButton onClick={handlePlayClick} className="record-play">
+						<RowContainer>
 							<img src="../img/speaker.png" alt="녹음재생" width="30px" />
 							녹음 재생
-						</div>
-					</button>
+						</RowContainer>
+					</PlayButton>
 					{onPlay && <RecordCountDown time={time} setOnPlay={setOnPlay} />}
-				</div>
+				</RowContainer>
 			)}
 		</React.Fragment>
 	);
 };
 
 export default RecordHandle;
+
+const Span = styled.span`
+	display: flex;
+	flex-direction: row;
+`;
+const PlayButton = styled.button`
+	display: flex;
+	flex-direction: row;
+`;

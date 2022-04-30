@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { getMyWill } from "../api/will";
 import { login } from "../modules/userSlice";
 import "../Mypage.css";
+import { Container } from "../components/commons/Container";
 
 const MyPage = () => {
 	const { search } = useLocation();
@@ -52,7 +53,7 @@ const MyPage = () => {
 	});
 
 	return (
-		<div className="container mypage">
+		<Container className=" mypage">
 			<div className="myPageTitle">
 				<div>유서함</div>
 			</div>
@@ -67,7 +68,7 @@ const MyPage = () => {
 					<div className="noticeText2"> 이전 유서 내용 수정 가능 </div>
 				</div>
 			)}
-		</div>
+		</Container>
 	);
 };
 

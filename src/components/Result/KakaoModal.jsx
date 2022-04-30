@@ -1,3 +1,4 @@
+import { ColContainer } from "../commons/Container";
 import KakaoBtn from "../commons/KakaoBtn";
 import Modal from "../commons/Modal";
 const KakaoModal = ({ setIsOpen }) => {
@@ -6,7 +7,7 @@ const KakaoModal = ({ setIsOpen }) => {
 	};
 	return (
 		<Modal setIsOpen={setIsOpen}>
-			<div className="col-container border-container modal">
+			<ColContainer className="border-container modal">
 				<button id="del-btn" onClick={handleDelClick}>
 					x
 				</button>
@@ -16,7 +17,7 @@ const KakaoModal = ({ setIsOpen }) => {
 					가능합니다.**
 				</small>
 				<KakaoBtn redirectUri={"/delivery"} />
-			</div>
+			</ColContainer>
 		</Modal>
 	);
 };

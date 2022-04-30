@@ -1,13 +1,14 @@
 import React from "react";
+import { RowContainer } from "../commons/Container";
 const RecordTime = ({ time }) => {
 	return (
-		<div className="row-container">
+		<RowContainer>
 			<span style={{ color: "red" }}> ● </span>
 			<span id="time">
 				{`${parseInt(time / 60)}`.padStart(2, "0")}:
 				{`${parseInt(time) % 60}`.padStart(2, "0")}
 			</span>
-		</div>
+		</RowContainer>
 	);
 };
 

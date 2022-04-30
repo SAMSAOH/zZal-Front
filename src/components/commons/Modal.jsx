@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { BgContainer, CenterContainer } from "./Container";
 const Modal = ({ setIsOpen, children }) => {
 	const wrapperRef = useRef(null);
 
@@ -18,10 +19,8 @@ const Modal = ({ setIsOpen, children }) => {
 
 	return (
 		<>
-			<div className="bg-container" />
-			<div ref={wrapperRef} className="center-container">
-				{children}
-			</div>
+			<BgContainer />
+			<CenterContainer ref={wrapperRef}>{children}</CenterContainer>
 		</>
 	);
 };

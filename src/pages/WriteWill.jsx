@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import TextareaAutosize from "react-textarea-autosize";
 import { postWill } from "../api/will";
+import { Container, RowContainer } from "../components/commons/Container";
 import RecordHandle from "../components/WriteWill/RecordHandle";
 import { setData } from "../modules/questionSlice";
 import "../WriteWill.css";
@@ -31,10 +32,10 @@ const WriteWill = () => {
 		}
 	};
 	return (
-		<div className="container">
+		<Container>
 			<div className="writewillBox">
 				<div className="writewillTitle">유서를 자유롭게 남겨보세요</div>
-				<div className="row-container input-wrapper">
+				<RowContainer className="input-wrapper">
 					<div className="writewillTitle">{">>"}</div>
 					<TextareaAutosize
 						type="text"
@@ -44,7 +45,7 @@ const WriteWill = () => {
 						onChange={handleChange}
 						required
 					/>
-				</div>
+				</RowContainer>
 			</div>
 			<div className="writevoiceBox">
 				<RecordHandle recordFile={recordFile} setRecordFile={setRecordFile} />
@@ -52,7 +53,7 @@ const WriteWill = () => {
 			<button onClick={handleSubmit} className="blue-btn writeBlueBtn">
 				작성 완료
 			</button>
-		</div>
+		</Container>
 	);
 };
 

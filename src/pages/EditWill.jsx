@@ -3,6 +3,7 @@ import { useLocation, useParams } from "react-router";
 import TextareaAutosize from "react-textarea-autosize";
 import { updateWill } from "../api/will";
 import { questionList } from "../assets/objects/questionList";
+import { Container, RowContainer } from "../components/commons/Container";
 import Header from "../components/Result/Header";
 import Will from "../components/Result/Will";
 import "../EditWill.css";
@@ -19,14 +20,14 @@ const EditWill = () => {
 		setResultContent((p) => ({ ...p, [name]: value }));
 	};
 	return (
-		<div className="editWill container result-container">
+		<Container className="editWill result-container">
 			<Header owner={resultContent.owner} date={resultContent.createdAt} />
 			{questionList.map((q, idx) => (
 				<section className="question-wrapper" key={idx}>
 					<h3>
 						Q{idx + 1}. {q}
 					</h3>
-					<div className="row-container input-wrapper">
+					<RowContainer className="input-wrapper">
 						<div className="writewillTitle">{">>"}</div>
 						<TextareaAutosize
 							/* placeholder={resultContent[`answer${idx + 1}`]} */
@@ -35,16 +36,16 @@ const EditWill = () => {
 							name={`answer${idx + 1}`}
 							required
 						/>
-					</div>
+					</RowContainer>
 				</section>
 			))}
 			<Will content={resultContent.content} handleChange={handleChange} />
-			<div className="row-container btn-wrapper">
+			<RowContainer className="btn-wrapper">
 				<button className="border-btn green-btn" onClick={onSubmit}>
 					수정하기
 				</button>
-			</div>
-		</div>
+			</RowContainer>
+		</Container>
 	);
 };
 

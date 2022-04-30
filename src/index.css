@@ -16,7 +16,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.container{
+/* .container{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -30,7 +30,7 @@ code {
 .col-container{
 	display: flex;
 	flex-direction: column;
-}
+} 
 .center-container{
 	display: flex;
 	flex-direction: column;
@@ -38,6 +38,15 @@ code {
 	min-height: 100vh;
 	justify-content: center;
 	padding: 50px 0px;
+}
+.bg-container{
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background-color: #00000050;
+	top: 0;
+	left: 0;
+	z-index: 1;
 }
 .bg-img-container{
 	display: flex;
@@ -48,7 +57,7 @@ code {
 	background-repeat: no-repeat;
   background-position: 50px 300px;
 	min-height: 100vh;
-}
+}*/
 .white-border-container{
   margin: 20px;
   border: solid 5px white;
@@ -59,15 +68,6 @@ code {
 .border-container{
   padding: 25px;
   border: solid 5px white;
-}
-.bg-container{
-	position: fixed;
-	width: 100vw;
-	height: 100vh;
-	background-color: #00000050;
-	top: 0;
-	left: 0;
-	z-index: 1;
 }
 .border-btn{
 	padding: 10px 20px;
