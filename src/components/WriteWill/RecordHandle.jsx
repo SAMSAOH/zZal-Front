@@ -89,7 +89,7 @@ const RecordHandle = ({ setRecordFile }) => {
 		setOnPlay((p) => !p);
 	};
 	return (
-		<>
+		<React.Fragment>
 			<div className="control-wrapper">
 				<button onClick={onRec ? offRecAudio : onRecAudio}>
 					<img src="../img/mic.png" alt="녹음Img" />
@@ -102,7 +102,6 @@ const RecordHandle = ({ setRecordFile }) => {
 					</span>
 				)}
 			</div>
-			<div className="writevoice-wrapper"></div>
 			{!disabled && (
 				<div className="row-container">
 					<button
@@ -117,7 +116,7 @@ const RecordHandle = ({ setRecordFile }) => {
 					{onPlay && <RecordCountDown time={time} setOnPlay={setOnPlay} />}
 				</div>
 			)}
-		</>
+		</React.Fragment>
 	);
 };
 

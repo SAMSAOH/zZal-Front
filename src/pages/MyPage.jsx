@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getMyWill } from "../api/will";
 import "../Mypage.css";
 
 const MyPage = () => {
@@ -15,7 +14,7 @@ const MyPage = () => {
 
 	const { userId } = useSelector((state) => state.user);
 	useEffect(() => {
-		axios.get(`/${userId}`).then((res) => {
+		getMyWill(userId).then((res) => {
 			setWills(res.data);
 			const updateDate = new Date(wills[wills.length - 1].createdDate);
 			const now = new Date();
@@ -29,7 +28,7 @@ const MyPage = () => {
 	}, []);
 	const renderWills = wills.map((will) => {
 		return (
-			<div className="renderWills">
+			<div className="renderWills" key={will.id}>
 				<div className="willsFormTitle">{will.createdDate} 유서</div>
 				<Link to={`/mywill/${will.willId}`}>
 					<button className="willsFormBtn">{">>"}</button>

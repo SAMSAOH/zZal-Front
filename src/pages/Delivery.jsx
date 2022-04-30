@@ -1,8 +1,7 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router";
+import { reqDelivery } from "../api/delivery";
 import DeliveryModal from "../components/Result/DeliveryModal";
 import "../Delivery.css";
 import { setId } from "../modules/user";
@@ -12,9 +11,7 @@ const Delivery = () => {
 	/* redux로부터 userId 받기 */
 	const { userId } = useSelector((state) => state.user);
 	const handleClickDelivery = () => {
-		axios
-			.post(`/will/delivery/${userId}`)
-			.then((res) => res.status === 200 && setIsOpen(true));
+		reqDelivery(userId).then(() => setIsOpen(true));
 	};
 
 	const location = useLocation();

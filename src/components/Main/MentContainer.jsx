@@ -1,4 +1,4 @@
-const MentWrapper = () => {
+const MentContainer = () => {
 	return (
 		<section className="col-container text-wrapper">
 			<li>◆◇ 나만의 유서 남기기</li>
@@ -10,4 +10,4 @@ const MentWrapper = () => {
 	);
 };
 
-export default MentWrapper;
+export default MentContainer;

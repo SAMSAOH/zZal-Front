@@ -1,16 +1,17 @@
-import axios from "axios";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import TextareaAutosize from "react-textarea-autosize";
+import { postWill } from "../api/will";
 import RecordHandle from "../components/WriteWill/RecordHandle";
+import { setData } from "../modules/question";
 import "../WriteWill.css";
 const WriteWill = () => {
-	const [input, setInput] = useState("");
 	const [recordFile, setRecordFile] = useState();
+	const dispatch = useDispatch();
 	const handleChange = (e) => {
 		const { value } = e.target;
-		setInput(value);
+		dispatch(setData("content", value));
 	};
 
 	const { data } = useSelector((state) => state.question);
@@ -19,15 +20,15 @@ const WriteWill = () => {
 		try {
 			const keys = Object.keys(data);
 			const formData = new FormData();
-			for (let key in keys) {
-				formData.append(key, data[key]);
-			}
+			keys.map((key) => formData.append(key, data[key]));
 			formData.append("voiceMail", recordFile);
-			axios
-				.post("/will/create", formData)
-				.then((res) => navigate(`/result/${res.data.willId}`));
+			postWill(formData).then((data) => {
+				console.log(data);
+				navigate(`/result/${data.willId}`);
+			});
 		} catch (error) {
-			console.log(error);
+			alert("작성 중 오류가 발생하였습니다.");
+			console.error(error);
 		}
 	};
 	return (
@@ -40,7 +41,7 @@ const WriteWill = () => {
 						type="text"
 						name="text"
 						className="qnaInput"
-						value={input}
+						value={data.content}
 						onChange={handleChange}
 						required
 					/>

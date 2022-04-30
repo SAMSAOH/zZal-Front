@@ -1,6 +1,6 @@
-import BtnWrapper from "../components/Main/BtnWrapper";
-import LogoWrapper from "../components/Main/LogoWrapper";
-import MentWrapper from "../components/Main/MentWrapper";
+import BtnWrapper from "../components/Main/BtnContainer";
+import LogoWrapper from "../components/Main/Logo";
+import MentWrapper from "../components/Main/MentContainer";
 import "../Main.css";
 const Main = () => {
 	return (

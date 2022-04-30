@@ -16,8 +16,8 @@ const InputPart = ({ input, setInput, type }) => {
 				className="qnaInput"
 				value={input}
 				onChange={handleChange}
-				maxLength={type === "owner" ? 20 : 200}
-				placeholder={`${type === "owner" ? 20 : 200}자 이하`}
+				maxLength={type === "ownerName" ? 20 : 200}
+				placeholder={`${type === "ownerName" ? 20 : 200}자 이하`}
 				required
 			/>
 		</div>
