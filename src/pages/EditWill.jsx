@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLocation, useParams } from "react-router";
 import TextareaAutosize from "react-textarea-autosize";
+import styled from "styled-components";
 import { updateWill } from "../api/will";
 import { questionList } from "../assets/objects/questionList";
 import { BorderGreenBtn } from "../components/commons/Buttons";
@@ -28,9 +29,9 @@ const EditWill = () => {
 					<h3>
 						Q{idx + 1}. {q}
 					</h3>
-					<RowContainer className="input-wrapper">
+					<RowContainer padding="0">
 						<div className="writewillTitle">{">>"}</div>
-						<TextareaAutosize
+						<TextArea
 							/* placeholder={resultContent[`answer${idx + 1}`]} */
 							value={resultContent[`answer${idx + 1}`]}
 							onChange={handleChange}
@@ -49,3 +50,6 @@ const EditWill = () => {
 };
 
 export default EditWill;
+const TextArea = styled(TextareaAutosize)`
+	font-size: large;
+`;
