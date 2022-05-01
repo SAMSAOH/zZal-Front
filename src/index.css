@@ -57,14 +57,14 @@ code {
 	background-repeat: no-repeat;
   background-position: 50px 300px;
 	min-height: 100vh;
-}*/
+}
 .white-border-container{
   margin: 20px;
   border: solid 5px white;
   display: flex;
   flex-direction: column;
   align-items: center;
-}/*
+}
 .border-container{
   padding: 25px;
   border: solid 5px white;
@@ -90,7 +90,7 @@ code {
 } 
 input{
   all: unset;
-}*/
+}
 .qnaInput{
 	all: unset;
-}
+}*/
