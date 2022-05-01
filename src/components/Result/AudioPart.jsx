@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 const AudioPart = (resultContent) => {
 	const [audio, setAudio] = useState();
 	const [isPlay, setIsPlay] = useState(false);
@@ -11,14 +12,19 @@ const AudioPart = (resultContent) => {
 	}, [resultContent]);
 	return (
 		<section>
-			<h2 className="yellow-text row-container">
+			<StyledH2 className="yellow-text">
 				음성 유서
 				<button onClick={handleAudioToggle}>
 					<img src="../img/speaker.png" alt="녹음재생" />
 				</button>
-			</h2>
+			</StyledH2>
 		</section>
 	);
 };
 
 export default AudioPart;
+const StyledH2 = styled.h2`
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+`;

@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
+import styled from "styled-components";
 import { reqDelivery } from "../api/delivery";
+import { Container, RowContainer } from "../components/commons/Container";
+import Flex from "../components/commons/Flex";
 import DeliveryModal from "../components/Result/DeliveryModal";
 import "../Delivery.css";
 import { login } from "../modules/userSlice";
@@ -31,7 +34,7 @@ const Delivery = () => {
 
 	return (
 		<>
-			<div className="delivery container">
+			<Container dir="column" alignCenter className="delivery">
 				<h2 className="label">배달하기</h2>
 				<div className="text-wrapper">
 					<h3>{">>"}배달하기란?</h3>
@@ -47,12 +50,12 @@ const Delivery = () => {
 						</span>
 					</section>
 				</div>
-				<div className="row-container btn-wrapper">
+				<RowContainer className="btn-wrapper">
 					<button className="border-btn blue-btn" onClick={handleClickDelivery}>
 						배달 신청
 					</button>
-				</div>
-			</div>
+				</RowContainer>
+			</Container>
 			{isOpen && <DeliveryModal setIsOpen={setIsOpen} />}
 		</>
 	);

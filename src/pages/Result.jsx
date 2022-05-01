@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getWillDetail } from "../api/will";
+import { Container, RowContainer } from "../components/commons/Container";
 import AudioPart from "../components/Result/AudioPart";
 import EditQuestion from "../components/Result/EditQuestion";
 import Header from "../components/Result/Header";
@@ -44,7 +45,7 @@ const Result = () => {
 	const handleEditClick = () => {
 		navigate(`/mywill/edit/${willId}`, resultContent);
 	};
-	
+
 	const QuestionContent = () => {
 		return isEdit ? (
 			<EditQuestion resultContent={resultContent} />
@@ -71,16 +72,16 @@ const Result = () => {
 	};
 	return (
 		<React.Fragment>
-			<div className="result container result-container">
+			<Container className="result result-container">
 				<Header owner={resultContent.owner} date={resultContent.createdAt} />
 				<QuestionContent />
 				<Will content={resultContent.content} />
 				<AudioPart resultContent={resultContent} />
-				<div className="row-container btn-wrapper">
+				<RowContainer gap="10px" className="btn-wrapper">
 					<ShareBtn />
 					<ButtonContent />
-				</div>
-			</div>
+				</RowContainer>
+			</Container>
 			{isOpen && <KakaoModal setIsOpen={setIsOpen} />}
 		</React.Fragment>
 	);

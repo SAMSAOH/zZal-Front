@@ -7,6 +7,8 @@ import ImgPart from "../components/WriteIndex/ImgPart";
 import InputPart from "../components/WriteIndex/InputPart";
 import "../WriteIndex.css";
 import { setData } from "../modules/questionSlice";
+import { ColContainer, Container } from "../components/commons/Container";
+import styled from "styled-components";
 const WriteIndex = () => {
 	const { idx } = useParams();
 	const paramIdx = parseInt(idx);
@@ -31,10 +33,10 @@ const WriteIndex = () => {
 	};
 
 	return (
-		<div className="write container white-border-container">
+		<WriteContainer className="white-border-container">
 			<ImgPart idx={paramIdx} />
 			<div className="writeLine">
-				<div className="col-container writeIndexTextBox">
+				<ColContainer className="writeIndexTextBox">
 					<Question idx={paramIdx} />
 					<InputPart
 						input={input}
@@ -44,10 +46,16 @@ const WriteIndex = () => {
 					<button onClick={handleNextClick} className="nextBtn">
 						다음
 					</button>
-				</div>
+				</ColContainer>
 			</div>
-		</div>
+		</WriteContainer>
 	);
 };
 
 export default WriteIndex;
+const WriteContainer = styled(Container)`
+	font-size: large;
+	color: white;
+	justify-content: flex-end;
+	min-height: 95vh;
+`;

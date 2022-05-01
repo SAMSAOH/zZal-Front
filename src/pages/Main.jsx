@@ -1,10 +1,11 @@
+import { CenterContainer } from "../components/commons/Container";
 import BtnWrapper from "../components/Main/BtnContainer";
 import LogoWrapper from "../components/Main/Logo";
 import MentWrapper from "../components/Main/MentContainer";
 import "../Main.css";
 const Main = () => {
 	return (
-		<div className="main center-container">
+		<CenterContainer className="main">
 			<img src="./img/text1.png" alt="randingText" />
 			<LogoWrapper />
 			<img src="./img/randingImg.png" width="80%" alt="밀레니엄버그Img" />
@@ -17,7 +18,7 @@ const Main = () => {
 				</h3>
 			</section>
 			<BtnWrapper />
-		</div>
+		</CenterContainer>
 	);
 };
 
