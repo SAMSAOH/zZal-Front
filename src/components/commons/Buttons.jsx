@@ -19,13 +19,11 @@ export const BorderGreenBtn = styled(Button)`
 `;
 
 export const BlueBtn = styled(Button)`
-	background-color: transparent;
-	border: solid 5px #2bc94d;
+	background-color: #36c6bd;
 	padding: ${({ padding }) => (padding ? padding : "10px 20px")};
 `;
 
 export const GreenBtn = styled(Button)`
-	padding: 10px 20px;
 	background-color: #2bc94d;
 	padding: ${({ padding }) => (padding ? padding : "10px 20px")};
 `;
