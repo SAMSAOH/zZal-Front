@@ -1,10 +1,11 @@
 import TextareaAutosize from "react-textarea-autosize";
+import styled from "styled-components";
 import { RowContainer } from "../commons/Container";
 
 const EditWill = ({ content, handleChange }) => {
 	return (
 		<section>
-			<h3 className="yellow-text">나의 유서</h3>
+			<YellowH3>나의 유서</YellowH3>
 			<hr />
 			<RowContainer className="input-wrapper">
 				<div className="writewillTitle">{">>"}</div>
@@ -22,3 +23,6 @@ const EditWill = ({ content, handleChange }) => {
 };
 
 export default EditWill;
+const YellowH3 = styled.h3`
+	color: #f5de0e;
+`;

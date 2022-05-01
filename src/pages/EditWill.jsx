@@ -22,10 +22,10 @@ const EditWill = () => {
 		setResultContent((p) => ({ ...p, [name]: value }));
 	};
 	return (
-		<Container className="editWill result-container">
+		<Container width="100%">
 			<Header owner={resultContent.owner} date={resultContent.createdAt} />
 			{questionList.map((q, idx) => (
-				<section className="question-wrapper" key={idx}>
+				<QuestionWrapper key={idx}>
 					<h3>
 						Q{idx + 1}. {q}
 					</h3>
@@ -39,7 +39,7 @@ const EditWill = () => {
 							required
 						/>
 					</RowContainer>
-				</section>
+				</QuestionWrapper>
 			))}
 			<Will content={resultContent.content} handleChange={handleChange} />
 			<RowContainer className="btn-wrapper">
@@ -52,4 +52,11 @@ const EditWill = () => {
 export default EditWill;
 const TextArea = styled(TextareaAutosize)`
 	font-size: large;
+`;
+const QuestionWrapper = styled.section`
+	width: 90%;
+	margin-bottom: 20px;
+	h3 {
+		color: #f5de0e;
+	}
 `;

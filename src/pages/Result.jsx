@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useLocation, useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import { getWillDetail } from "../api/will";
 import { BorderGreenBtn } from "../components/commons/Buttons";
 import { Container, RowContainer } from "../components/commons/Container";
@@ -69,15 +70,15 @@ const Result = () => {
 	};
 	return (
 		<React.Fragment>
-			<Container className="result result-container">
+			<Container width="100%">
 				<Header owner={resultContent.owner} date={resultContent.createdAt} />
 				<QuestionContent />
 				<Will content={resultContent.content} />
 				<AudioPart resultContent={resultContent} />
-				<RowContainer gap="10px" className="btn-wrapper">
+				<BtnWrapper gap="10px">
 					<ShareBtn />
 					<ButtonContent />
-				</RowContainer>
+				</BtnWrapper>
 			</Container>
 			{isOpen && <KakaoModal setIsOpen={setIsOpen} />}
 		</React.Fragment>
@@ -85,3 +86,7 @@ const Result = () => {
 };
 
 export default Result;
+const BtnWrapper = styled(RowContainer)`
+	margin-top: 50px;
+	margin-bottom: 20px;
+`;

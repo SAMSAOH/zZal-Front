@@ -1,10 +1,11 @@
 import TextareaAutosize from "react-textarea-autosize";
+import styled from "styled-components";
 import { RowContainer } from "../commons/Container";
 
 const Will = ({ content, handleChange }) => {
 	return (
 		<section>
-			<h3 className="yellow-text">나의 유서</h3>
+			<YellowH3>나의 유서</YellowH3>
 			<hr />
 			<RowContainer gap="10px" className="input-wrapper">
 				<div className="writewillTitle">{">>"}</div>
@@ -22,3 +23,6 @@ const Will = ({ content, handleChange }) => {
 };
 
 export default Will;
+const YellowH3 = styled.h3`
+	color: #f5de0e;
+`;

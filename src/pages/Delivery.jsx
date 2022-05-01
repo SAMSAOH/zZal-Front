@@ -40,7 +40,7 @@ const Delivery = () => {
 	return (
 		<>
 			<BGContainer dir="column" alignCenter width="100%">
-				<h2 className="label">배달하기</h2>
+				<Head>배달하기</Head>
 				<TextWrapper width="80%">
 					<h3>{">>"}배달하기란?</h3>
 					<ContentWrapper>
@@ -49,10 +49,10 @@ const Delivery = () => {
 						<br /> <br /> 1년전, 나를 돌아보세요.
 					</ContentWrapper>
 					<Section>
-						<span className="yellow-text">
+						<YellowText>
 							**배달 메일
 							<br /> <br /> 카카오 계정 이메일로 발송됩니다.
-						</span>
+						</YellowText>
 					</Section>
 				</TextWrapper>
 				<RowContainer className="btn-wrapper">
@@ -81,4 +81,13 @@ const ContentWrapper = styled.p`
 	color: white;
 	line-height: 1.5;
 	margin: 20px 0;
+`;
+const Head = styled.h2`
+	border-bottom: solid 3px white;
+	width: 90%;
+	text-align: center;
+	padding-bottom: 20px;
+`;
+const YellowText = styled.p`
+	color: #f5de0e;
 `;

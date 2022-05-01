@@ -10,7 +10,7 @@ const DeliveryModal = ({ setIsOpen }) => {
 	};
 	return (
 		<Modal setIsOpen={setIsOpen}>
-			<WhiteBorderContainer className="modal">
+			<WhiteBorderModalContainer>
 				<h3>배달 신청이 완료되었습니다.</h3>
 				<span>
 					{""} 으로 {""}에 배송 예정입니다.
@@ -18,13 +18,20 @@ const DeliveryModal = ({ setIsOpen }) => {
 				<Button border="solid 3px white" onClick={handleConfirmClick}>
 					확인
 				</Button>
-			</WhiteBorderContainer>
+			</WhiteBorderModalContainer>
 		</Modal>
 	);
 };
 
 export default DeliveryModal;
-const WhiteBorderContainer = styled(ColContainer)`
+export const WhiteBorderModalContainer = styled(ColContainer)`
 	padding: 25px;
 	border: solid 5px white;
+	position: absolute;
+	margin: 5%;
+	background-color: #05037b;
+	top: 30%;
+	z-index: 1;
+	gap: 30px;
+	align-items: center;
 `;
