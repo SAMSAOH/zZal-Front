@@ -3,6 +3,7 @@ import { useLocation, useParams } from "react-router";
 import TextareaAutosize from "react-textarea-autosize";
 import { updateWill } from "../api/will";
 import { questionList } from "../assets/objects/questionList";
+import { BorderGreenBtn } from "../components/commons/Buttons";
 import { Container, RowContainer } from "../components/commons/Container";
 import Header from "../components/Result/Header";
 import Will from "../components/Result/Will";
@@ -41,9 +42,7 @@ const EditWill = () => {
 			))}
 			<Will content={resultContent.content} handleChange={handleChange} />
 			<RowContainer className="btn-wrapper">
-				<button className="border-btn green-btn" onClick={onSubmit}>
-					수정하기
-				</button>
+				<BorderGreenBtn onClick={onSubmit}>수정하기</BorderGreenBtn>
 			</RowContainer>
 		</Container>
 	);

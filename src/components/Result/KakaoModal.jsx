@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { ColContainer } from "../commons/Container";
 import KakaoBtn from "../commons/KakaoBtn";
 import Modal from "../commons/Modal";
@@ -7,7 +8,7 @@ const KakaoModal = ({ setIsOpen }) => {
 	};
 	return (
 		<Modal setIsOpen={setIsOpen}>
-			<ColContainer className="border-container modal">
+			<WhiteBorderContainer className="modal">
 				<button id="del-btn" onClick={handleDelClick}>
 					x
 				</button>
@@ -17,9 +18,13 @@ const KakaoModal = ({ setIsOpen }) => {
 					가능합니다.**
 				</small>
 				<KakaoBtn redirectUri={"/delivery"} />
-			</ColContainer>
+			</WhiteBorderContainer>
 		</Modal>
 	);
 };
 
 export default KakaoModal;
+const WhiteBorderContainer = styled(ColContainer)`
+	padding: 25px;
+	border: solid 5px white;
+`;

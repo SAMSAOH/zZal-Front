@@ -1,4 +1,4 @@
-@import url('//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.530/neodgm/style.css');
+/*@import url('//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.530/neodgm/style.css');
 body {
   margin: 0;
   font-family: 'NeoDunggeunmo',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -64,12 +64,12 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+}/*
 .border-container{
   padding: 25px;
   border: solid 5px white;
 }
-.border-btn{
+ .border-btn{
 	padding: 10px 20px;
 }
 .solid-blue-btn{
@@ -87,10 +87,10 @@ code {
 .green-btn{
 	background-color: transparent;
 	border: solid 5px #2BC94D;
-}
+} 
 input{
   all: unset;
-}
+}*/
 .qnaInput{
 	all: unset;
 }

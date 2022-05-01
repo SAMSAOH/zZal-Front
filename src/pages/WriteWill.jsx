@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import TextareaAutosize from "react-textarea-autosize";
 import { postWill } from "../api/will";
+import { BorderBlueBtn } from "../components/commons/Buttons";
 import { Container, RowContainer } from "../components/commons/Container";
 import RecordHandle from "../components/WriteWill/RecordHandle";
 import { setData } from "../modules/questionSlice";
@@ -50,9 +51,9 @@ const WriteWill = () => {
 			<div className="writevoiceBox">
 				<RecordHandle recordFile={recordFile} setRecordFile={setRecordFile} />
 			</div>
-			<button onClick={handleSubmit} className="blue-btn writeBlueBtn">
+			<BorderBlueBtn onClick={handleSubmit} className="writeBlueBtn">
 				작성 완료
-			</button>
+			</BorderBlueBtn>
 		</Container>
 	);
 };

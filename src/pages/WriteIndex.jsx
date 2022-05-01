@@ -33,7 +33,7 @@ const WriteIndex = () => {
 	};
 
 	return (
-		<WriteContainer className="white-border-container">
+		<WriteContainer>
 			<ImgPart idx={paramIdx} />
 			<div className="writeLine">
 				<ColContainer className="writeIndexTextBox">
@@ -56,6 +56,9 @@ export default WriteIndex;
 const WriteContainer = styled(Container)`
 	font-size: large;
 	color: white;
-	justify-content: flex-end;
 	min-height: 95vh;
+	margin: 20px;
+	border: solid 5px white;
+	justify-content: flex-end;
+	align-items: center;
 `;

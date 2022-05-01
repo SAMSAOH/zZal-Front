@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
 import styled from "styled-components";
 import { reqDelivery } from "../api/delivery";
+import { BorderBlueBtn } from "../components/commons/Buttons";
 import { Container, RowContainer } from "../components/commons/Container";
 import Flex from "../components/commons/Flex";
 import DeliveryModal from "../components/Result/DeliveryModal";
@@ -51,9 +52,9 @@ const Delivery = () => {
 					</section>
 				</div>
 				<RowContainer className="btn-wrapper">
-					<button className="border-btn blue-btn" onClick={handleClickDelivery}>
+					<BorderBlueBtn onClick={handleClickDelivery}>
 						배달 신청
-					</button>
+					</BorderBlueBtn>
 				</RowContainer>
 			</Container>
 			{isOpen && <DeliveryModal setIsOpen={setIsOpen} />}

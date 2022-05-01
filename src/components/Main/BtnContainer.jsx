@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { BlueBtn, GreenBtn } from "../commons/Buttons";
 
 const BtnContainer = () => {
 	return (
 		<Section className="btn-wrapper">
-			<button className="solid-blue-btn">
+			<BlueBtn>
 				<Link to={`/write/${1}`}>유서 남기기</Link>
-			</button>
-			<button className="solid-green-btn">
+			</BlueBtn>
+			<GreenBtn>
 				<Link to="/login">나의 유서함</Link>
-			</button>
+			</GreenBtn>
 		</Section>
 	);
 };
