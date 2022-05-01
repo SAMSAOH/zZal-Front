@@ -4,7 +4,11 @@ import { useLocation, useNavigate } from "react-router";
 import styled from "styled-components";
 import { reqDelivery } from "../api/delivery";
 import { BorderBlueBtn } from "../components/commons/Buttons";
-import { Container, RowContainer } from "../components/commons/Container";
+import {
+	ColContainer,
+	Container,
+	RowContainer,
+} from "../components/commons/Container";
 import Flex from "../components/commons/Flex";
 import DeliveryModal from "../components/Result/DeliveryModal";
 import "../Delivery.css";
@@ -35,31 +39,46 @@ const Delivery = () => {
 
 	return (
 		<>
-			<Container dir="column" alignCenter className="delivery">
+			<BGContainer dir="column" alignCenter width="100%">
 				<h2 className="label">배달하기</h2>
-				<div className="text-wrapper">
+				<TextWrapper width="80%">
 					<h3>{">>"}배달하기란?</h3>
-					<span className="content-wrapper">
+					<ContentWrapper>
 						1년 마다, 나의 메일로 <br /> 유서를 배달해줍니다.
 						<br /> <br /> 험난한 지구에서 살아남은 <br /> 당신에게 보내는 유서
 						<br /> <br /> 1년전, 나를 돌아보세요.
-					</span>
-					<section>
+					</ContentWrapper>
+					<Section>
 						<span className="yellow-text">
 							**배달 메일
 							<br /> <br /> 카카오 계정 이메일로 발송됩니다.
 						</span>
-					</section>
-				</div>
+					</Section>
+				</TextWrapper>
 				<RowContainer className="btn-wrapper">
-					<BorderBlueBtn onClick={handleClickDelivery}>
-						배달 신청
-					</BorderBlueBtn>
+					<BorderBlueBtn onClick={handleClickDelivery}>배달 신청</BorderBlueBtn>
 				</RowContainer>
-			</Container>
+			</BGContainer>
 			{isOpen && <DeliveryModal setIsOpen={setIsOpen} />}
 		</>
 	);
 };
 
 export default Delivery;
+const BGContainer = styled(Container)`
+	background-image: url("/public/img/mail.png");
+	background-repeat: no-repeat;
+	background-position: center;
+`;
+const TextWrapper = styled(ColContainer)`
+	flex: 0.9;
+	justify-content: flex-start;
+`;
+const Section = styled.section`
+	width: 90%;
+`;
+const ContentWrapper = styled.p`
+	color: white;
+	line-height: 1.5;
+	margin: 20px 0;
+`;

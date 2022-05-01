@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
 import styled from "styled-components";
+import { Button } from "../commons/Buttons";
 import { ColContainer } from "../commons/Container";
 import Modal from "../commons/Modal";
 const DeliveryModal = ({ setIsOpen }) => {
@@ -14,9 +15,9 @@ const DeliveryModal = ({ setIsOpen }) => {
 				<span>
 					{""} 으로 {""}에 배송 예정입니다.
 				</span>
-				<button className="border-btn white-btn" onClick={handleConfirmClick}>
+				<Button border="solid 3px white" onClick={handleConfirmClick}>
 					확인
-				</button>
+				</Button>
 			</WhiteBorderContainer>
 		</Modal>
 	);
