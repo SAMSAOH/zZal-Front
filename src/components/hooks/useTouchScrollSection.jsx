@@ -5,7 +5,6 @@ const useTouchScrollSection = ({ pageCount }) => {
 	const touchStart = useRef();
 
 	const handleStart = useCallback((e) => {
-		e.preventDefault();
 		touchStart.current = e.changedTouches[0].pageY;
 	}, []);
 
