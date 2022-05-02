@@ -4,6 +4,8 @@ const Flex = styled.div`
 	display: flex;
 	flex-direction: ${({ dir }) => dir};
 	gap: ${({ gap }) => gap};
+	width: ${({ width }) => width};
+	height: ${({ height }) => height};
 	${({ spaceBetween }) =>
 		spaceBetween &&
 		css`

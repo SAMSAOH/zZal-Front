@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useLocation, useParams } from "react-router";
 import TextareaAutosize from "react-textarea-autosize";
+import styled from "styled-components";
 import { updateWill } from "../api/will";
 import { questionList } from "../assets/objects/questionList";
+import { BorderGreenBtn } from "../components/commons/Buttons";
 import { Container, RowContainer } from "../components/commons/Container";
 import Header from "../components/Result/Header";
 import Will from "../components/Result/Will";
@@ -20,16 +22,16 @@ const EditWill = () => {
 		setResultContent((p) => ({ ...p, [name]: value }));
 	};
 	return (
-		<Container className="editWill result-container">
+		<Container width="100%">
 			<Header owner={resultContent.owner} date={resultContent.createdAt} />
 			{questionList.map((q, idx) => (
-				<section className="question-wrapper" key={idx}>
+				<QuestionWrapper key={idx}>
 					<h3>
 						Q{idx + 1}. {q}
 					</h3>
-					<RowContainer className="input-wrapper">
+					<RowContainer padding="0">
 						<div className="writewillTitle">{">>"}</div>
-						<TextareaAutosize
+						<TextArea
 							/* placeholder={resultContent[`answer${idx + 1}`]} */
 							value={resultContent[`answer${idx + 1}`]}
 							onChange={handleChange}
@@ -37,16 +39,24 @@ const EditWill = () => {
 							required
 						/>
 					</RowContainer>
-				</section>
+				</QuestionWrapper>
 			))}
 			<Will content={resultContent.content} handleChange={handleChange} />
 			<RowContainer className="btn-wrapper">
-				<button className="border-btn green-btn" onClick={onSubmit}>
-					수정하기
-				</button>
+				<BorderGreenBtn onClick={onSubmit}>수정하기</BorderGreenBtn>
 			</RowContainer>
 		</Container>
 	);
 };
 
 export default EditWill;
+const TextArea = styled(TextareaAutosize)`
+	font-size: large;
+`;
+const QuestionWrapper = styled.section`
+	width: 90%;
+	margin-bottom: 20px;
+	h3 {
+		color: #f5de0e;
+	}
+`;

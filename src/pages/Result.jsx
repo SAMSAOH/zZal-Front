@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useLocation, useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import { getWillDetail } from "../api/will";
+import { BorderGreenBtn } from "../components/commons/Buttons";
 import { Container, RowContainer } from "../components/commons/Container";
 import AudioPart from "../components/Result/AudioPart";
 import EditQuestion from "../components/Result/EditQuestion";
@@ -57,30 +59,26 @@ const Result = () => {
 		if (isMyPage) {
 			return (
 				isAfterYear && (
-					<button onClick={handleEditClick} className="border-btn green-btn">
-						수정하기
-					</button>
+					<BorderGreenBtn onClick={handleEditClick}>수정하기</BorderGreenBtn>
 				)
 			);
 		} else {
 			return (
-				<button className="border-btn green-btn" onClick={handleClickDelivery}>
-					배달하기
-				</button>
+				<BorderGreenBtn onClick={handleClickDelivery}>배달하기</BorderGreenBtn>
 			);
 		}
 	};
 	return (
 		<React.Fragment>
-			<Container className="result result-container">
+			<Container width="100%">
 				<Header owner={resultContent.owner} date={resultContent.createdAt} />
 				<QuestionContent />
 				<Will content={resultContent.content} />
 				<AudioPart resultContent={resultContent} />
-				<RowContainer gap="10px" className="btn-wrapper">
+				<BtnWrapper gap="10px">
 					<ShareBtn />
 					<ButtonContent />
-				</RowContainer>
+				</BtnWrapper>
 			</Container>
 			{isOpen && <KakaoModal setIsOpen={setIsOpen} />}
 		</React.Fragment>
@@ -88,3 +86,7 @@ const Result = () => {
 };
 
 export default Result;
+const BtnWrapper = styled(RowContainer)`
+	margin-top: 50px;
+	margin-bottom: 20px;
+`;

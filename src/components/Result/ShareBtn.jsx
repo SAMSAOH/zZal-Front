@@ -1,3 +1,5 @@
+import { BorderBlueBtn } from "../commons/Buttons";
+
 const ShareBtn = () => {
 	const handleShareClick = () => {
 		if (navigator.share) {
@@ -10,11 +12,7 @@ const ShareBtn = () => {
 			alert("공유하기가 지원되지 않는 환경 입니다.");
 		}
 	};
-	return (
-		<button className="border-btn blue-btn" onClick={handleShareClick}>
-			공유하기
-		</button>
-	);
+	return <BorderBlueBtn onClick={handleShareClick}>공유하기</BorderBlueBtn>;
 };
 
 export default ShareBtn;
