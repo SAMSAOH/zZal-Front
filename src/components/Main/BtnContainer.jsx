@@ -20,7 +20,7 @@ const Section = styled.section`
 	display: flex;
 	flex-direction: column;
 	button {
-		font-size: large;
+		/* font-size: large; */
 		box-shadow: 0px 0px 20px 10px #ffffff20;
 		transition: 0.6s;
 	}
