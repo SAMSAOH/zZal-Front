@@ -6,6 +6,9 @@ const GlobalStyle = createGlobalStyle`
         src: local("NeoDunggeunmo"),
         url('//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.530/neodgm/style.css');
     }
+    *{
+        box-sizing: border-box;
+    }
     body {
     margin: 0;
     font-family: 'NeoDunggeunmo',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
