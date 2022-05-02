@@ -6,6 +6,7 @@ const Flex = styled.div`
 	gap: ${({ gap }) => gap};
 	width: ${({ width }) => width};
 	height: ${({ height }) => height};
+	padding: ${({ padding }) => padding};
 	${({ spaceBetween }) =>
 		spaceBetween &&
 		css`
