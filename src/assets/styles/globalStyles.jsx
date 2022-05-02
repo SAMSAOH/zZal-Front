@@ -2,9 +2,10 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     @font-face {
-        font-family: NeoDunggeunmo;
-        src: local("NeoDunggeunmo"),
-        url('//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.530/neodgm/style.css');
+        font-family: 'NeoDunggeunmo';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
     }
     *{
         box-sizing: border-box;
