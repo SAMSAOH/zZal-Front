@@ -15,7 +15,7 @@ const useTouchScrollSection = ({ pageCount }) => {
 				touchStart.current - e.changedTouches[0].pageY > 10
 			) {
 				window.scrollTo({
-					top: currPage.current * window.outerHeight,
+					top: currPage.current * window.innerHeight,
 					behavior: "smooth",
 				});
 				currPage.current++;
@@ -25,7 +25,7 @@ const useTouchScrollSection = ({ pageCount }) => {
 				touchStart.current - e.changedTouches[0].pageY < -10
 			) {
 				window.scrollTo({
-					top: (currPage.current - 2) * window.outerHeight,
+					top: (currPage.current - 2) * window.innerHeight,
 					behavior: "smooth",
 				});
 				currPage.current--;
@@ -51,14 +51,14 @@ const useTouchScrollSection = ({ pageCount }) => {
 
 	const handleClickScrollDown = () => {
 		window.scrollTo({
-			top: currPage.current * window.outerHeight,
+			top: currPage.current * window.innerHeight,
 			behavior: "smooth",
 		});
 		currPage.current++;
 	};
 	const handleClickScrollUP = () => {
 		window.scrollTo({
-			top: (currPage.current - 2) * window.outerHeight,
+			top: (currPage.current - 2) * window.innerHeight,
 			behavior: "smooth",
 		});
 		currPage.current--;
