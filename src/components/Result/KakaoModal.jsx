@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import { ColContainer } from "../commons/Container";
 import KakaoBtn from "../commons/KakaoBtn";

@@ -1,3 +1,5 @@
+import React from "react";
+
 import { useEffect } from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";
@@ -11,13 +13,12 @@ const Login = () => {
 		<WhiteBorderContainer className="login">
 			<LogoWrapper />
 			<Img src="./img/randingImg.png" width="80%" alt="밀레니엄버그img" />
-			<ColContainer >
+			<ColContainer>
 				<BtnWrapper>
-					<KakaoBtn redirectUri={"/myPage"} />	
+					<KakaoBtn redirectUri={"/myPage"} />
 				</BtnWrapper>
 			</ColContainer>
 		</WhiteBorderContainer>
-
 	);
 };
 
@@ -27,13 +28,13 @@ const WhiteBorderContainer = styled(ColContainer)`
 	border: solid 5px white;
 	align-items: center;
 `;
-const BtnWrapper=styled.div`
+const BtnWrapper = styled.div`
 	font-size: x-large;
 	gap: 20px;
 	color: white;
 	justify-content: flex-end;
 	padding: 30px 0;
 `;
-const Img=styled.img`
+const Img = styled.img`
 	padding: 100px 0;
-`
+`;
