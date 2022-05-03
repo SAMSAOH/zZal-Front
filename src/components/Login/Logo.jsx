@@ -1,15 +1,30 @@
 import { ColContainer } from "../commons/Container";
+import styled from "styled-components";
 
 const Logo = () => {
 	return (
-		<ColContainer className="logo-wrapper">
-			<span className="sub-logo">
-				<img src={"./img/z.png"} width="16px" alt="z문자" />
-				세대 멸망 대비 프로젝트
-			</span>
+		<LogoWrapper>
+		<SubLogo>
+		<img src={"./img/z.png"} width="16px" alt="z문자" />
+					세대 멸망 대비 프로젝트
+		</SubLogo>
 			<img src="./img/logo.png" width="250px" id="logo" alt="logo" />
-		</ColContainer>
+		</LogoWrapper>
 	);
 };
 
 export default Logo;
+const LogoWrapper=styled(ColContainer)`
+	width: 90%;
+	display: flex;
+	align-items: center;
+	margin-top: 50%;
+`
+const SubLogo=styled.span`
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 90%;
+	justify-content: flex-end
+`

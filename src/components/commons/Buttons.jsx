@@ -6,6 +6,13 @@ export const Button = styled.button`
 	border: ${({ border }) => border};
 `;
 
+export const BorderYellowBtn = styled(Button)`
+	background-color: transparent;
+	border: solid 5px #F5DE0E;
+	font-size: x-large;
+	padding: ${({ padding }) => (padding ? padding : "10px 20px")};
+`;
+
 export const BorderBlueBtn = styled(Button)`
 	background-color: transparent;
 	border: solid 5px #36c6bd;
