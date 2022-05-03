@@ -1,16 +1,14 @@
 import React from "react";
-import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
-import { Button } from "../components/commons/Buttons";
-import { CenterContainer, ColContainer } from "../components/commons/Container";
-import Flex from "../components/commons/Flex";
-import useScrollFadeIn from "../components/hooks/useScrollFadeIn";
-import useTouchScrollSection from "../components/hooks/useTouchScrollSection";
-import BtnWrapper from "../components/Main/BtnContainer";
-import LogoWrapper from "../components/Main/Logo";
-import MentWrapper from "../components/Main/MentContainer";
-import ArrowDownIcon from "../assets/imgs/ArrowDown.svg";
+import { Button } from "@components/commons/Buttons";
+import { ColContainer } from "@components/commons/Container";
+import Flex from "@components/commons/Flex";
+import useScrollFadeIn from "@components/hooks/useScrollFadeIn";
+import useTouchScrollSection from "@components/hooks/useTouchScrollSection";
+import BtnWrapper from "@components/Main/BtnContainer";
+import LogoWrapper from "@components/Main/Logo";
+import MentWrapper from "@components/Main/MentContainer";
+import {ReactComponent as ArrowDownIcon} from "@assets/imgs/ArrowDown.svg";
 
 const Main = () => {
 	const { ref, style } = useScrollFadeIn();
@@ -27,8 +25,7 @@ const Main = () => {
 				<LogoWrapper />
 				<MentWrapper />
 				<Button onClick={handleClickScrollDown}>
-					<ArrowDownIcon />
-					<FontAwesomeIcon icon={faAngleDoubleDown} />
+					<ArrowDownIcon width="30px" height="30px"/>
 				</Button>
 			</FirstSection>
 			<SecondSection ref={ref} style={style}>
@@ -76,8 +73,7 @@ const FirstSection = styled(Section)`
 		opacity: 0.7;
 	}
 	svg {
-		opacity: 0.8;
-		transform: scale(3, 2);
+		opacity: 0.7;
 		transition: 0.6s;
 	}
 	button {
