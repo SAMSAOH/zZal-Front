@@ -1,29 +1,42 @@
 import React from "react";
 import TextareaAutosize from "react-textarea-autosize";
-import styled from "styled-components";
-import { RowContainer } from "../commons/Container";
+import styled, { css } from "styled-components";
+import { ColContainer, RowContainer } from "../commons/Container";
 
-const Will = ({ content, handleChange }) => {
+const Will = ({ content, handleChange, isEdit }) => {
 	return (
-		<section>
+		<ColContainer>
 			<YellowH3>나의 유서</YellowH3>
-			<hr />
-			<RowContainer gap="10px" className="input-wrapper">
+			<TextContainer gap="10px">
 				<div className="writewillTitle">{">>"}</div>
-				<TextareaAutosize
+				<Textarea
 					type="text"
 					name="content"
 					className="qnaInput"
 					value={content}
 					onChange={handleChange}
 					required
+					disabled={!isEdit}
 				/>
-			</RowContainer>
-		</section>
+			</TextContainer>
+		</ColContainer>
 	);
 };
 
 export default Will;
 const YellowH3 = styled.h3`
 	color: #f5de0e;
+	border-bottom: solid 3px #f5de0e;
+	padding-bottom: 20px;
+`;
+const TextContainer = styled(RowContainer)`
+	align-items: flex-start;
+`;
+
+const Textarea = styled(TextareaAutosize)`
+	${({ disabled }) =>
+		disabled &&
+		css`
+			outline: none;
+		`}
 `;
