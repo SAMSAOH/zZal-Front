@@ -7,8 +7,8 @@ import useScrollFadeIn from "@hooks/useScrollFadeIn";
 import useTouchScrollSection from "@hooks/useTouchScrollSection";
 import BtnWrapper from "@components/Main/BtnContainer";
 import LogoWrapper from "@components/Main/Logo";
-import MentWrapper from "@components/Main/MentContainer";
-import {ReactComponent as ArrowDownIcon} from "@assets/imgs/ArrowDown.svg";
+import MentContainer from "@components/Main/MentContainer";
+import { ReactComponent as ArrowDownIcon } from "@assets/imgs/ArrowDown.svg";
 
 const Main = () => {
 	const { ref, style } = useScrollFadeIn();
@@ -23,9 +23,9 @@ const Main = () => {
 					width="250px"
 				/>
 				<LogoWrapper />
-				<MentWrapper />
+				<MentContainer />
 				<Button onClick={handleClickScrollDown}>
-					<ArrowDownIcon width="30px" height="30px"/>
+					<ArrowDownIcon width="30px" height="30px" />
 				</Button>
 			</FirstSection>
 			<SecondSection ref={ref} style={style}>

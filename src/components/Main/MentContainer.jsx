@@ -20,6 +20,7 @@ const TextWrapper = styled(ColContainer)`
 	justify-content: center;
 	line-height: 1.5;
 	padding: 10vh 0;
+	margin:10vh 0;
 	gap: 10px;
 	background-color: #06053280;
 	padding: 20px;
