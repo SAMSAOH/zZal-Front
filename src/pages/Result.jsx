@@ -11,7 +11,6 @@ import {
 } from "../components/commons/Container";
 import AudioPart from "../components/Result/AudioPart";
 import EditQuestion from "../components/Result/EditQuestion";
-import Header from "../components/Result/Header";
 import KakaoModal from "../components/Result/KakaoModal";
 import Question from "../components/Result/Question";
 import ShareBtn from "../components/Result/ShareBtn";
@@ -29,35 +28,27 @@ const Result = () => {
 		setIsOpen(true);
 	};
 	const [resultContent, setResultContent] = useState({});
-	// useEffect(() => {
-	// 	getWillDetail(willId).then((data) => setResultContent(data));
-	// 	if (pathname.includes("mywill")) {
-	// 		setIsMyPage(true);
-	// 		const updateDate = new Date(resultContent.createdDate);
-	// 		const now = new Date();
-	// 		if (
-	// 			updateDate.getMonth() <= now.getMonth() &&
-	// 			updateDate.getDate() <= now.getDate()
-	// 		) {
-	// 			setIsAfterYear(true);
-	// 		}
-	// 	}
-	// 	if (pathname.includes("edit")) {
-	// 		setIsEdit(true);
-	// 	}
-	// }, []);
+	useEffect(() => {
+		getWillDetail(willId).then((data) => setResultContent(data));
+		if (pathname.includes("mywill")) {
+			setIsMyPage(true);
+			const updateDate = new Date(resultContent.createdDate);
+			const now = new Date();
+			if (
+				updateDate.getMonth() <= now.getMonth() &&
+				updateDate.getDate() <= now.getDate()
+			) {
+				setIsAfterYear(true);
+			}
+		}
+		if (pathname.includes("edit")) {
+			setIsEdit(true);
+		}
+	}, []);
 
 	const navigate = useNavigate();
 	const handleEditClick = () => {
 		navigate(`/mywill/edit/${willId}`, resultContent);
-	};
-
-	const QuestionContent = () => {
-		return isEdit ? (
-			<EditQuestion resultContent={resultContent} />
-		) : (
-			<Question resultContent={resultContent} />
-		);
 	};
 	const ButtonContent = () => {
 		if (isMyPage) {
@@ -74,7 +65,7 @@ const Result = () => {
 	};
 	return (
 		<React.Fragment>
-			<ResultContainer width="100%">
+			<Container width="100%">
 				<Head>
 					<h2>{resultContent.owner}의 유서</h2>
 					<span>{resultContent.date}</span>
@@ -92,7 +83,7 @@ const Result = () => {
 					<ShareBtn />
 					<ButtonContent />
 				</BtnWrapper>
-			</ResultContainer>
+			</Container>
 			{isOpen && <KakaoModal setIsOpen={setIsOpen} />}
 		</React.Fragment>
 	);
@@ -108,10 +99,7 @@ const Head = styled.div`
 
 const BtnWrapper = styled(RowContainer)`
 	button {
-		width:100%;
+		width: 100%;
 		text-align: center;
 	}
-`;
-const ResultContainer = styled(Container)`
-	/* background-image: linear-gradient(#05037b, #060532); */
 `;
