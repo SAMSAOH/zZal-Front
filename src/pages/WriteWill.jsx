@@ -39,7 +39,7 @@ const WriteWill = () => {
 				<WriteWillTitle>유서를 자유롭게 남겨보세요</WriteWillTitle>
 				<InputWrapper>
 				<WriteWillTitle>{">>"}</WriteWillTitle>
-					<TextareaAutosize
+					<InputText
 						type="text"
 						name="text"
 						className="qnaInput"
@@ -52,9 +52,9 @@ const WriteWill = () => {
 			<WriteVoiceBox>
 				<RecordHandle recordFile={recordFile} setRecordFile={setRecordFile} />
 			</WriteVoiceBox>
-			<WriteBlueBtn onClick={handleSubmit}>
+			<BorderBlueBtn onClick={handleSubmit}>
 				작성 완료
-			</WriteBlueBtn>
+			</BorderBlueBtn>
 		</Container>
 	);
 };
@@ -77,6 +77,10 @@ const WriteVoiceBox=styled.div`
  	width: 90%;
     height: 250px;
 `
-const WriteBlueBtn=styled(BorderBlueBtn)`
- 
+const InputText=styled(TextareaAutosize)`
+	background-color:transparent;
+    border: 0;
+    color: white;
+    font-size: x-large;
+    font-family: 'NeoDunggeunmo';
 `
