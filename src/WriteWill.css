@@ -1,4 +1,4 @@
-.writewillBox{
+/*.writewillBox{
     margin-top: 46px;
     width: 90%;
     min-height: 430px;
@@ -14,6 +14,7 @@
     justify-content: center;
     margin-bottom: 10px;
 }
+/*
 .writevoiceBox{
     width: 90%;
     height: 250px;
@@ -23,7 +24,7 @@
     color: #36C6BD;
     font-size: 18px;
     flex: 1;
-}
+}*/
 .writevoice-wrapper{
     border-top: solid 3px white;
     width: 100%;
@@ -31,22 +32,22 @@
     justify-content: center;
     margin-bottom: 10px;
 }
-.writeBlueBtn{
+/*.writeBlueBtn{
     font-size: x-large;
     padding: 12px 40px;
 }
-.writewillBox .input-wrapper{
+/*.writewillBox .input-wrapper{
     border-top: solid 3px white;
-}
-#time{
+}*/
+/*#time{
     margin-left: 10px;
     opacity: 50%;
 }
-.control-wrapper{
+/*.control-wrapper{
     width: 100%;
     display: flex;
     align-items: center;
-}
-.record-play{
+}*/
+/*.record-play{
     flex: 1;
-}
+}*/

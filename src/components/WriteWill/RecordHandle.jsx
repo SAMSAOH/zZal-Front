@@ -94,25 +94,25 @@ const RecordHandle = ({ setRecordFile }) => {
 	};
 	return (
 		<React.Fragment>
-			<div className="control-wrapper">
+			<ControlWrapper>
 				<button onClick={onRec ? offRecAudio : onRecAudio}>
-					<img src="../img/mic.png" alt="녹음Img" />
-				</button>
-				<div className="writevoiceTitle">음성 유서 남기기</div>
-				{onRec && (
-					<Span>
-						녹음중
-						<RecordTime time={time} />
-					</Span>
-				)}
-			</div>
+						<img src="../img/mic.png" alt="녹음Img" />
+					</button>
+					<WriteVoiceTitle>음성 유서 남기기</WriteVoiceTitle>
+					{onRec && (
+						<Span>
+							녹음중
+							<RecordTime time={time} />
+						</Span>
+					)}
+			</ControlWrapper>
 			{hasRecord && (
 				<RowContainer>
-					<PlayButton onClick={handlePlayClick} className="record-play">
-						<RowContainer>
-							<img src="../img/speaker.png" alt="녹음재생" width="30px" />
-							녹음 재생
-						</RowContainer>
+					<PlayButton onClick={handlePlayClick}>
+							<RowContainer>
+								<img src="../img/speaker.png" alt="녹음재생" width="30px" />
+								녹음 재생
+							</RowContainer>
 					</PlayButton>
 					{onPlay && <RecordCountDown time={time} setOnPlay={setOnPlay} />}
 				</RowContainer>
@@ -130,4 +130,15 @@ const Span = styled.span`
 const PlayButton = styled.button`
 	display: flex;
 	flex-direction: row;
+	flex: 1;
 `;
+const ControlWrapper=styled.div`
+ 	width: 100%;
+    display: flex;
+    align-items: center;	
+`
+const WriteVoiceTitle=styled.div`
+	color: #36C6BD;
+    font-size: 18px;
+    flex: 1;
+`
