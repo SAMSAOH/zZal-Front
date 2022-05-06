@@ -1,10 +1,15 @@
 import React from "react";
+import styled from "styled-components";
+import { ColContainer } from "../commons/Container";
 const ImgPart = ({ idx }) => {
 	return (
-		<div className="img-wrapper">
+		<ImgWrapper center>
 			<img src={`../img/q${idx}.png`} width="250px" alt="questionImg" />
-		</div>
+		</ImgWrapper>
 	);
 };
 
 export default ImgPart;
+const ImgWrapper = styled(ColContainer)`
+	flex: 1;
+`;

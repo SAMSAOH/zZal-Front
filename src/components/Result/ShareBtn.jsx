@@ -1,3 +1,4 @@
+import React from "react";
 import { BorderBlueBtn } from "../commons/Buttons";
 
 const ShareBtn = () => {
