@@ -55,32 +55,26 @@ const MyPage = () => {
 
 	return (
 		<Container width="100%">
-			<Head>
-				<span>유서함</span>
-			</Head>
+			<Head>유서함</Head>
 			<ListContainer>{renderWills}</ListContainer>
 			{isAfterYear ? (
 				<WriteWillBtn padding="12px 40px">유서 남기기</WriteWillBtn>
 			) : (
-				<NoticeWrapper>
+				<NoticeBox>
 					<div>유서 작성은 1년 간격으로 가능합니다.</div>
 					<div> 이전 유서 내용 수정 가능 </div>
-				</NoticeWrapper>
+				</NoticeBox>
 			)}
 		</Container>
 	);
 };
 
 export default MyPage;
-const Head = styled.div`
+const Head = styled.h2`
 	border-bottom: solid 3px white;
 	width: 90%;
 	text-align: center;
-	& > span {
-		font-size: 36px;
-		margin-top: 19px;
-		margin-bottom: 12px;
-	}
+	padding-bottom: 20px;
 `;
 const ListContainer = styled.div`
 	width: 90%;
@@ -108,19 +102,22 @@ const WriteWillBtn = styled(BorderBlueBtn)`
 	bottom: 0;
 	margin-bottom: 60px;
 `;
-const NoticeWrapper = styled.div`
+const NoticeBox = styled.p`
 	position: fixed;
 	bottom: 0;
-	margin-bottom: 60px;
+	width: 90%;
+	border: solid 3px #f5de0e;
+	padding: 20px;
+	color: #f5de0e;
+	background-color: #ffffff20;
+	font-size: small;
 	text-align: center;
-	opacity: 80%;
 	& > div:nth-child(1) {
 		color: #f5de0e;
-		font-size: 18px;
+		font-size: medium;
 		margin-bottom: 10px;
 	}
 	& > div:nth-child(2) {
 		color: white;
-		size: 12px;
 	}
 `;
