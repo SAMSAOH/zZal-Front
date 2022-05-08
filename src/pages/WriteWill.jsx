@@ -8,7 +8,6 @@ import { BorderBlueBtn } from "../components/commons/Buttons";
 import { Container, RowContainer } from "../components/commons/Container";
 import RecordHandle from "../components/WriteWill/RecordHandle";
 import { setData } from "../modules/questionSlice";
-import "../WriteWill.css";
 const WriteWill = () => {
 	const [recordFile, setRecordFile] = useState();
 	const dispatch = useDispatch();

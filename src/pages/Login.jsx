@@ -6,7 +6,6 @@ import styled from "styled-components";
 import { ColContainer } from "../components/commons/Container";
 import KakaoBtn from "../components/commons/KakaoBtn";
 import LogoWrapper from "../components/Login/Logo";
-import "../Login.css";
 import { login } from "../modules/userSlice";
 const Login = () => {
 	return (

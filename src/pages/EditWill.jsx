@@ -10,7 +10,6 @@ import { BorderGreenBtn } from "../components/commons/Buttons";
 import { Container, RowContainer } from "../components/commons/Container";
 import Header from "../components/Result/Header";
 import Will from "../components/Result/Will";
-import "../EditWill.css";
 const EditWill = () => {
 	const { willId } = useParams();
 	const { state } = useLocation();
