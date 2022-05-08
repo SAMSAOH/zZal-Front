@@ -27,5 +27,15 @@ const GlobalStyle = createGlobalStyle`
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
     }
+    textarea{
+    background-color:transparent;
+    border: 0;
+    color: white;
+    font-size: x-large;
+    font-family: 'NeoDunggeunmo';
+    font-family:  'NeoDunggeunmo';
+    width: 100%;
+    margin-bottom: 25px;
+    }
 `;
 export default GlobalStyle;
