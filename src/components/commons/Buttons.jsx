@@ -4,6 +4,7 @@ export const Button = styled.button`
 	all: unset;
 	padding: ${({ padding }) => (padding ? padding : "10px 20px")};
 	border: ${({ border }) => border};
+	margin: ${({ margin }) => margin};
 `;
 
 export const BorderYellowBtn = styled(Button)`
