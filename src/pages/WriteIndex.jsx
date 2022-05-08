@@ -35,19 +35,19 @@ const WriteIndex = () => {
 	return (
 		<WriteContainer>
 			<ImgPart idx={paramIdx} />
-			<div className="writeLine">
-				<ColContainer className="writeIndexTextBox">
+			<WriteLine>
+				<WriteIndexTextBox>
 					<Question idx={paramIdx} />
 					<InputPart
 						input={input}
 						setInput={setInput}
 						type={paramIdx === 1 ? "ownerName" : "answer"}
 					/>
-					<button onClick={handleNextClick} className="nextBtn">
+					<NextBtn onClick={handleNextClick}>
 						다음
-					</button>
-				</ColContainer>
-			</div>
+					</NextBtn>
+				</WriteIndexTextBox>
+			</WriteLine>
 		</WriteContainer>
 	);
 };
@@ -62,3 +62,24 @@ const WriteContainer = styled(Container)`
 	justify-content: flex-end;
 	align-items: center;
 `;
+const WriteLine=styled.div`
+	width:100%;
+    border-top: solid 5px #fff;
+	display: flex;
+	justify-content: center;
+`
+const WriteIndexTextBox=styled(ColContainer)`
+	width: 100%;
+    min-height: 20vh;
+    margin: 10px 15px;
+    padding: 10px 10px;
+    background-color: #2bc94d;
+    position: relative;
+`
+const NextBtn=styled.button`
+	color: #F5DE0E;
+    font-size: 30px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+`
