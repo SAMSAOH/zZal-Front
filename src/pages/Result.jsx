@@ -15,7 +15,6 @@ import KakaoModal from "../components/Result/KakaoModal";
 import Question from "../components/Result/Question";
 import ShareBtn from "../components/Result/ShareBtn";
 import Will from "../components/Result/Will";
-import "../Result.css";
 const Result = () => {
 	const { willId } = useParams();
 	const [isOpen, setIsOpen] = useState(false);

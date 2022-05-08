@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router";
 import Question from "../components/WriteIndex/Question";
 import ImgPart from "../components/WriteIndex/ImgPart";
 import InputPart from "../components/WriteIndex/InputPart";
-import "../WriteIndex.css";
 import { setData } from "../modules/questionSlice";
 import { ColContainer, Container } from "../components/commons/Container";
 import styled from "styled-components";
