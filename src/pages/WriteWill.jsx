@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import TextareaAutosize from "react-textarea-autosize";
@@ -34,11 +35,11 @@ const WriteWill = () => {
 	};
 	return (
 		<Container>
-			<div className="writewillBox">
-				<div className="writewillTitle">유서를 자유롭게 남겨보세요</div>
-				<RowContainer className="input-wrapper">
-					<div className="writewillTitle">{">>"}</div>
-					<TextareaAutosize
+			<WriteWillBox>
+				<WriteWillTitle>유서를 자유롭게 남겨보세요</WriteWillTitle>
+				<InputWrapper>
+				<WriteWillTitle>{">>"}</WriteWillTitle>
+					<InputText
 						type="text"
 						name="text"
 						className="qnaInput"
@@ -46,12 +47,12 @@ const WriteWill = () => {
 						onChange={handleChange}
 						required
 					/>
-				</RowContainer>
-			</div>
-			<div className="writevoiceBox">
+				</InputWrapper>	
+			</WriteWillBox>
+			<WriteVoiceBox>
 				<RecordHandle recordFile={recordFile} setRecordFile={setRecordFile} />
-			</div>
-			<BorderBlueBtn onClick={handleSubmit} className="writeBlueBtn">
+			</WriteVoiceBox>
+			<BorderBlueBtn onClick={handleSubmit}>
 				작성 완료
 			</BorderBlueBtn>
 		</Container>
@@ -59,3 +60,27 @@ const WriteWill = () => {
 };
 
 export default WriteWill;
+const WriteWillBox=styled.div`
+	margin-top: 46px;
+    width: 90%;
+    min-height: 430px;
+`
+const WriteWillTitle=styled.div`
+	font-size: 18px;
+    margin-bottom: 22px;
+`
+const InputWrapper=styled(RowContainer)`
+	border-top: solid 3px white;
+	padding-top: 10px;
+`
+const WriteVoiceBox=styled.div`
+ 	width: 90%;
+    height: 250px;
+`
+const InputText=styled(TextareaAutosize)`
+	background-color:transparent;
+    border: 0;
+    color: white;
+    font-size: x-large;
+    font-family: 'NeoDunggeunmo';
+`

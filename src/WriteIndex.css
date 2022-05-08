@@ -1,15 +1,15 @@
-.write{
+/*.write{
     font-size: large;
     color: white;
     justify-content: flex-end;
     min-height: 95vh;
 }
-.write .img-wrapper{
+/*.write .img-wrapper{
     flex: 1;
     display: flex;
     align-items: center;
 }
-.writeLine{
+/*.writeLine{
     width:100%;
     border-top: solid 5px #fff;
 	display: flex;
@@ -40,7 +40,7 @@ textarea::placeholder {
   opacity: 50%;
   font-family:  'NeoDunggeunmo';
 }
-.question{
+/*.question{
     color: #F5DE0E;
     font-size: x-large;
 }
@@ -51,7 +51,7 @@ textarea::placeholder {
     font-size: x-large;
     font-family: 'NeoDunggeunmo';
 }
-.nextBtn{
+/*.nextBtn{
     color: #F5DE0E;
     font-size: 30px;
     position: absolute;
@@ -62,4 +62,4 @@ textarea::placeholder {
     align-items: flex-start;
     padding: 10px 0;
     gap: 10px;
-}
+}*/
