@@ -36,6 +36,8 @@ const GlobalStyle = createGlobalStyle`
     font-family:  'NeoDunggeunmo';
     width: 100%;
     margin-bottom: 25px;
+    overflow:hidden;
+    resize: none;
     }
 `;
 export default GlobalStyle;
