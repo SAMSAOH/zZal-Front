@@ -60,7 +60,7 @@ export default WriteWill;
 const WriteWillBox = styled.div`
 	margin-top: 46px;
 	width: 90%;
-	min-height: 400px;
+	min-height: 430px;
 `;
 const WriteWillTitle = styled.div`
 	font-size: 18px;
