@@ -8,11 +8,10 @@ const Will = ({ content, handleChange, isEdit }) => {
 		<ColContainer>
 			<YellowH3>나의 유서</YellowH3>
 			<TextContainer gap="10px">
-				<div className="writewillTitle">{">>"}</div>
+				<div>{">>"}</div>
 				<Textarea
 					type="text"
 					name="content"
-					className="qnaInput"
 					value={content}
 					onChange={handleChange}
 					required
