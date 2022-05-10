@@ -8,7 +8,6 @@ import { updateWill } from "../api/will";
 import { questionList } from "../assets/objects/questionList";
 import { BorderGreenBtn } from "../components/commons/Buttons";
 import { Container, RowContainer } from "../components/commons/Container";
-import Header from "../components/Result/Header";
 import Will from "../components/Result/Will";
 const EditWill = () => {
 	const { willId } = useParams();
@@ -24,7 +23,10 @@ const EditWill = () => {
 	};
 	return (
 		<Container width="100%">
-			<Header owner={resultContent.owner} date={resultContent.createdAt} />
+			<Head>
+				<h2>{resultContent.owner}의 유서</h2>
+				<span>{resultContent.date}</span>
+			</Head>
 			{questionList.map((q, idx) => (
 				<QuestionWrapper key={idx}>
 					<h3>
@@ -51,6 +53,13 @@ const EditWill = () => {
 };
 
 export default EditWill;
+const Head = styled.div`
+	border-bottom: solid 3px white;
+	width: 90%;
+	text-align: center;
+	padding-bottom: 20px;
+`;
+
 const TextArea = styled(TextareaAutosize)`
 	font-size: large;
 `;
