@@ -19,7 +19,7 @@ const LogoWrapper = styled(ColContainer)`
 	width: 90%;
 	display: flex;
 	align-items: center;
-	margin-top: 50%;
+	margin-top: 20%;
 `;
 const SubLogo = styled.span`
 	margin-bottom: 20px;
