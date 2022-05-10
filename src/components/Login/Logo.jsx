@@ -7,7 +7,7 @@ const Logo = () => {
 	return (
 		<LogoWrapper>
 			<SubLogo>
-				<ZIcon width="16px" alt="z문자" />
+				<ZIcon width="16px" height="24px" alt="z문자" />
 				세대 멸망 대비 프로젝트
 			</SubLogo>
 			<img src={LogoImg} width="250px" id="logo" alt="logo" />

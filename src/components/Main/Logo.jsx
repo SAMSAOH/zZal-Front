@@ -8,7 +8,7 @@ const Logo = () => {
 		<LogoWrapper>
 			<LogoImgElement src={LogoImg} width="300px" id="logo" alt="logo" />
 			<SubLogo>
-				<ZIcon width="16px" alt="z문자" />
+				<ZIcon width="16px" height="24px" alt="z문자" />
 				세대 멸망 대비 프로젝트
 			</SubLogo>
 		</LogoWrapper>
@@ -31,4 +31,7 @@ const SubLogo = styled.span`
 	align-items: center;
 	width: 70%;
 	justify-content: flex-end;
+	svg {
+		opacity: 1;
+	}
 `;
