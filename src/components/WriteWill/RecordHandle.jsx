@@ -5,6 +5,7 @@ import useAudioPlayer from "../../hooks/useAudioPlay";
 import useRecord from "../../hooks/useRecord";
 import { RowContainer } from "../commons/Container";
 import { AudioContainer } from "../Result/AudioPart";
+import MicImg from "@assets/imgs/mic.png";
 const RecordHandle = ({ setRecordFile }) => {
 	const {
 		onRec,
@@ -32,7 +33,7 @@ const RecordHandle = ({ setRecordFile }) => {
 			<RowContainer gap="20px">
 				<h4>음성 유서</h4>
 				<button onClick={onRec ? handleOffRecord : handleRecord}>
-					<img src="../img/mic.png" alt="녹음Img" width="32px" />
+					<img src={MicImg} alt="녹음Img" width="32px" />
 				</button>
 				{onRec && (
 					<Span>

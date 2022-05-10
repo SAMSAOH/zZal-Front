@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router";
-import Question from "../components/WriteIndex/Question";
 import ImgPart from "../components/WriteIndex/ImgPart";
 import InputPart from "../components/WriteIndex/InputPart";
 import { setData } from "../modules/questionSlice";
@@ -35,21 +34,19 @@ const WriteIndex = () => {
 	return (
 		<WriteContainer>
 			<ImgPart idx={paramIdx} />
-			<WriteLine>
-				<WriteIndexTextBox>
-					<Quest>
-						{paramIdx === 1
-							? `Q1. 당신의 이름은?`
-							: `Q${paramIdx}.${questionList[paramIdx - 2]}`}
-					</Quest>
-					<InputPart
-						input={input}
-						setInput={setInput}
-						type={paramIdx === 1 ? "ownerName" : "answer"}
-					/>
-					<NextBtn onClick={handleNextClick}>다음</NextBtn>
-				</WriteIndexTextBox>
-			</WriteLine>
+			<WriteIndexTextBox>
+				<Quest>
+					{paramIdx === 1
+						? `Q1. 당신의 이름은?`
+						: `Q${paramIdx}.${questionList[paramIdx - 2]}`}
+				</Quest>
+				<InputPart
+					input={input}
+					setInput={setInput}
+					type={paramIdx === 1 ? "ownerName" : "answer"}
+				/>
+				<NextBtn onClick={handleNextClick}>다음</NextBtn>
+			</WriteIndexTextBox>
 		</WriteContainer>
 	);
 };
@@ -64,19 +61,13 @@ const WriteContainer = styled(Container)`
 	justify-content: flex-end;
 	align-items: center;
 `;
-const WriteLine = styled.div`
-	width: 100%;
-	border-top: solid 3px #fff;
-	display: flex;
-	justify-content: center;
-`;
 const WriteIndexTextBox = styled(ColContainer)`
 	width: 100%;
 	min-height: 25vh;
-	margin: 0px;
 	padding: 10px 10px;
 	background-color: #2bc94d;
 	position: relative;
+	border-top: solid 3px #fff;
 `;
 const NextBtn = styled.button`
 	color: #f5de0e;

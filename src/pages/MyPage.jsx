@@ -42,16 +42,14 @@ const MyPage = () => {
 			}
 		});
 	}, []);
-	const renderWills = wills?.map((will) => {
-		return (
-			<WillContainer key={will.id}>
-				<WillTitle>{will.createdDate} 유서</WillTitle>
-				<Link to={`/mywill/${will.willId}`}>
-					<YellowBtn>{">>"}</YellowBtn>
-				</Link>
-			</WillContainer>
-		);
-	});
+	const renderWills = wills?.map((will) => (
+		<WillContainer key={will.id}>
+			<WillTitle>{will.createdDate} 유서</WillTitle>
+			<Link to={`/mywill/${will.willId}`}>
+				<YellowBtn>{">>"}</YellowBtn>
+			</Link>
+		</WillContainer>
+	));
 
 	return (
 		<Container width="100%">
