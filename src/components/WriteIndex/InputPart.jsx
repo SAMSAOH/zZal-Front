@@ -14,7 +14,6 @@ const InputPart = ({ input, setInput, type }) => {
 			<TextInput
 				type="text"
 				name="text"
-				className="qnaInput"
 				value={input}
 				onChange={handleChange}
 				maxLength={type === "ownerName" ? 20 : 200}

@@ -8,12 +8,11 @@ const EditWill = ({ content, handleChange }) => {
 		<section>
 			<YellowH3>나의 유서</YellowH3>
 			<hr />
-			<RowContainer className="input-wrapper">
-				<div className="writewillTitle">{">>"}</div>
+			<RowContainer>
+				<div>{">>"}</div>
 				<TextareaAutosize
 					type="text"
 					name="content"
-					className="qnaInput"
 					value={content}
 					onChange={handleChange}
 					required

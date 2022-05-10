@@ -41,7 +41,6 @@ const WriteWill = () => {
 					<InputText
 						type="text"
 						name="content"
-						className="qnaInput"
 						value={data.content}
 						onChange={handleChange}
 						required

@@ -31,7 +31,7 @@ const EditWill = () => {
 						Q{idx + 1}. {q}
 					</h3>
 					<RowContainer padding="0">
-						<div className="writewillTitle">{">>"}</div>
+						<div>{">>"}</div>
 						<TextArea
 							/* placeholder={resultContent[`answer${idx + 1}`]} */
 							value={resultContent[`answer${idx + 1}`]}
@@ -43,7 +43,7 @@ const EditWill = () => {
 				</QuestionWrapper>
 			))}
 			<Will content={resultContent.content} handleChange={handleChange} />
-			<RowContainer className="btn-wrapper">
+			<RowContainer>
 				<BorderGreenBtn onClick={onSubmit}>수정하기</BorderGreenBtn>
 			</RowContainer>
 		</Container>
