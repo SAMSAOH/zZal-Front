@@ -26,13 +26,13 @@ const DeliveryModal = ({ setIsOpen }) => {
 
 export default DeliveryModal;
 export const WhiteBorderModalContainer = styled(ColContainer)`
-	padding: 25px;
-	border: solid 5px white;
+	padding: 20px;
+	border: solid 3px white;
 	position: absolute;
 	margin: 5%;
 	background-color: #05037b;
 	top: 30%;
 	z-index: 1;
-	gap: 30px;
+	gap: 20px;
 	align-items: center;
 `;

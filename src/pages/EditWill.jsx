@@ -8,9 +8,7 @@ import { updateWill } from "../api/will";
 import { questionList } from "../assets/objects/questionList";
 import { BorderGreenBtn } from "../components/commons/Buttons";
 import { Container, RowContainer } from "../components/commons/Container";
-import Header from "../components/Result/Header";
 import Will from "../components/Result/Will";
-import "../EditWill.css";
 const EditWill = () => {
 	const { willId } = useParams();
 	const { state } = useLocation();
@@ -25,14 +23,17 @@ const EditWill = () => {
 	};
 	return (
 		<Container width="100%">
-			<Header owner={resultContent.owner} date={resultContent.createdAt} />
+			<Head>
+				<h2>{resultContent.owner}의 유서</h2>
+				<span>{resultContent.date}</span>
+			</Head>
 			{questionList.map((q, idx) => (
 				<QuestionWrapper key={idx}>
 					<h3>
 						Q{idx + 1}. {q}
 					</h3>
 					<RowContainer padding="0">
-						<div className="writewillTitle">{">>"}</div>
+						<div>{">>"}</div>
 						<TextArea
 							/* placeholder={resultContent[`answer${idx + 1}`]} */
 							value={resultContent[`answer${idx + 1}`]}
@@ -44,7 +45,7 @@ const EditWill = () => {
 				</QuestionWrapper>
 			))}
 			<Will content={resultContent.content} handleChange={handleChange} />
-			<RowContainer className="btn-wrapper">
+			<RowContainer>
 				<BorderGreenBtn onClick={onSubmit}>수정하기</BorderGreenBtn>
 			</RowContainer>
 		</Container>
@@ -52,6 +53,13 @@ const EditWill = () => {
 };
 
 export default EditWill;
+const Head = styled.div`
+	border-bottom: solid 3px white;
+	width: 90%;
+	text-align: center;
+	padding-bottom: 20px;
+`;
+
 const TextArea = styled(TextareaAutosize)`
 	font-size: large;
 `;
