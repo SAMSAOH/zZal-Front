@@ -14,11 +14,13 @@ const InputPart = ({ input, setInput, type }) => {
 			<TextInput
 				type="text"
 				name="text"
+				id="will-input"
 				value={input}
 				onChange={handleChange}
 				maxLength={type === "ownerName" ? 20 : 200}
 				placeholder={`${type === "ownerName" ? 20 : 200}자 이하`}
 				required
+				autoFocus
 			/>
 		</InputWrapper>
 	);

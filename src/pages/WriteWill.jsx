@@ -44,6 +44,7 @@ const WriteWill = () => {
 						value={data.content}
 						onChange={handleChange}
 						required
+						autoFocus
 					/>
 				</InputWrapper>
 			</WriteWillBox>

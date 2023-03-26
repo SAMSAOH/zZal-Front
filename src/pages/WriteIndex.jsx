@@ -17,6 +17,7 @@ const WriteIndex = () => {
 	const [input, setInput] = useState(data[key]);
 	useEffect(() => {
 		setInput(data[key]);
+		document.getElementById("will-input").focus();
 	}, [idx]);
 
 	const dispatch = useDispatch();
@@ -75,6 +76,7 @@ const NextBtn = styled.button`
 	position: absolute;
 	right: 10px;
 	bottom: 10px;
+	cursor: pointer;
 `;
 
 const Quest = styled.div`
