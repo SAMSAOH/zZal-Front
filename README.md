@@ -4,6 +4,8 @@
 유서를 디지털로 기록하고 음성으로 남기며,
 1년마다 배달 오는 Z세대 멸망 대비 유서 아카이브 웹 서비스,Zl구에서 잘 놀다갑니다[zZAL] 입니다.
 
+![image](https://user-images.githubusercontent.com/70322673/227754326-05c71a68-0ddf-44cb-b85a-cb25b8daa397.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
