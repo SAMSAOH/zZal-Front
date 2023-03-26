@@ -1,15 +1,16 @@
 import React from "react";
 import { ColContainer } from "../commons/Container";
 import styled from "styled-components";
-
+import { ReactComponent as ZIcon } from "@assets/imgs/Z.svg";
+import LogoImg from "@assets/imgs/logo.png";
 const Logo = () => {
 	return (
 		<LogoWrapper>
 			<SubLogo>
-				<img src={"./img/z.png"} width="16px" alt="z문자" />
+				<ZIcon width="16px" height="24px" alt="z문자" />
 				세대 멸망 대비 프로젝트
 			</SubLogo>
-			<img src="./img/logo.png" width="250px" id="logo" alt="logo" />
+			<img src={LogoImg} width="250px" id="logo" alt="logo" />
 		</LogoWrapper>
 	);
 };
@@ -19,7 +20,7 @@ const LogoWrapper = styled(ColContainer)`
 	width: 90%;
 	display: flex;
 	align-items: center;
-	margin-top: 50%;
+	margin-top: 20%;
 `;
 const SubLogo = styled.span`
 	margin-bottom: 20px;

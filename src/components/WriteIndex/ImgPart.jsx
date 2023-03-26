@@ -4,7 +4,11 @@ import { ColContainer } from "../commons/Container";
 const ImgPart = ({ idx }) => {
 	return (
 		<ImgWrapper center>
-			<img src={`../img/q${idx}.png`} width="250px" alt="questionImg" />
+			<img
+				src={require(`../../assets/imgs/q${idx}.png`)}
+				width="250px"
+				alt="questionImg"
+			/>
 		</ImgWrapper>
 	);
 };

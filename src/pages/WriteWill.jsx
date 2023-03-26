@@ -8,13 +8,12 @@ import { BorderBlueBtn } from "../components/commons/Buttons";
 import { Container, RowContainer } from "../components/commons/Container";
 import RecordHandle from "../components/WriteWill/RecordHandle";
 import { setData } from "../modules/questionSlice";
-import "../WriteWill.css";
 const WriteWill = () => {
 	const [recordFile, setRecordFile] = useState();
 	const dispatch = useDispatch();
 	const handleChange = (e) => {
 		const { value } = e.target;
-		dispatch(setData("content", value));
+		dispatch(setData({ key: "content", data: value }));
 	};
 
 	const { data } = useSelector((state) => state.question);
@@ -36,23 +35,21 @@ const WriteWill = () => {
 	return (
 		<Container>
 			<WriteWillBox>
-				<WriteWillTitle>유서를 자유롭게 남겨보세요</WriteWillTitle>
+				<WriteWillTitle>유서를 자유롭게 남겨보세요.</WriteWillTitle>
 				<InputWrapper>
-				<WriteWillTitle>{">>"}</WriteWillTitle>
+					<WriteWillTitle>{">>"}</WriteWillTitle>
 					<InputText
 						type="text"
-						name="text"
-						className="qnaInput"
+						name="content"
 						value={data.content}
 						onChange={handleChange}
 						required
+						autoFocus
 					/>
-				</InputWrapper>	
+				</InputWrapper>
 			</WriteWillBox>
-			<WriteVoiceBox>
-				<RecordHandle recordFile={recordFile} setRecordFile={setRecordFile} />
-			</WriteVoiceBox>
-			<BorderBlueBtn onClick={handleSubmit}>
+			<RecordHandle recordFile={recordFile} setRecordFile={setRecordFile} />
+			<BorderBlueBtn onClick={handleSubmit} margin="30px 0">
 				작성 완료
 			</BorderBlueBtn>
 		</Container>
@@ -60,27 +57,20 @@ const WriteWill = () => {
 };
 
 export default WriteWill;
-const WriteWillBox=styled.div`
+const WriteWillBox = styled.div`
 	margin-top: 46px;
-    width: 90%;
-    min-height: 430px;
-`
-const WriteWillTitle=styled.div`
+	width: 90%;
+	min-height: 430px;
+`;
+const WriteWillTitle = styled.div`
 	font-size: 18px;
-    margin-bottom: 22px;
-`
-const InputWrapper=styled(RowContainer)`
+	margin-bottom: 22px;
+`;
+const InputWrapper = styled(RowContainer)`
 	border-top: solid 3px white;
 	padding-top: 10px;
-`
-const WriteVoiceBox=styled.div`
- 	width: 90%;
-    height: 250px;
-`
-const InputText=styled(TextareaAutosize)`
-	background-color:transparent;
-    border: 0;
-    color: white;
-    font-size: x-large;
-    font-family: 'NeoDunggeunmo';
-`
+	align-items: flex-start;
+`;
+const InputText = styled(TextareaAutosize)`
+	font-size: large;
+`;

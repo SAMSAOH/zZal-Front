@@ -4,15 +4,17 @@ import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { getWillDetail } from "../api/will";
 import { BorderGreenBtn } from "../components/commons/Buttons";
-import { Container, RowContainer } from "../components/commons/Container";
+import {
+	ColContainer,
+	Container,
+	RowContainer,
+} from "../components/commons/Container";
 import AudioPart from "../components/Result/AudioPart";
 import EditQuestion from "../components/Result/EditQuestion";
-import Header from "../components/Result/Header";
 import KakaoModal from "../components/Result/KakaoModal";
 import Question from "../components/Result/Question";
 import ShareBtn from "../components/Result/ShareBtn";
 import Will from "../components/Result/Will";
-import "../Result.css";
 const Result = () => {
 	const { willId } = useParams();
 	const [isOpen, setIsOpen] = useState(false);
@@ -47,14 +49,6 @@ const Result = () => {
 	const handleEditClick = () => {
 		navigate(`/mywill/edit/${willId}`, resultContent);
 	};
-
-	const QuestionContent = () => {
-		return isEdit ? (
-			<EditQuestion resultContent={resultContent} />
-		) : (
-			<Question resultContent={resultContent} />
-		);
-	};
 	const ButtonContent = () => {
 		if (isMyPage) {
 			return (
@@ -71,11 +65,20 @@ const Result = () => {
 	return (
 		<React.Fragment>
 			<Container width="100%">
-				<Header owner={resultContent.owner} date={resultContent.createdAt} />
-				<QuestionContent />
-				<Will content={resultContent.content} />
-				<AudioPart resultContent={resultContent} />
-				<BtnWrapper gap="10px">
+				<Head>
+					<h2>{resultContent.owner}의 유서</h2>
+					<span>{resultContent.date}</span>
+				</Head>
+				<ColContainer width="90%">
+					{isEdit ? (
+						<EditQuestion resultContent={resultContent} />
+					) : (
+						<Question resultContent={resultContent} />
+					)}
+					<Will content={resultContent.content} isEdit={isEdit} />
+					<AudioPart resultContent={resultContent} />
+				</ColContainer>
+				<BtnWrapper gap="10px" padding="30px 0" width="90%" justifyCenter>
 					<ShareBtn />
 					<ButtonContent />
 				</BtnWrapper>
@@ -86,7 +89,16 @@ const Result = () => {
 };
 
 export default Result;
+const Head = styled.div`
+	border-bottom: solid 3px white;
+	width: 90%;
+	text-align: center;
+	padding-bottom: 20px;
+`;
+
 const BtnWrapper = styled(RowContainer)`
-	margin-top: 50px;
-	margin-bottom: 20px;
+	button {
+		width: 100%;
+		text-align: center;
+	}
 `;

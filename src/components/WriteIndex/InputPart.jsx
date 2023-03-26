@@ -10,44 +10,36 @@ const InputPart = ({ input, setInput, type }) => {
 	};
 	return (
 		<InputWrapper>
-		<InputMark>
-		{">>"}
-		</InputMark>
-		<TextInput
+			<InputMark>{">>"}</InputMark>
+			<TextInput
 				type="text"
 				name="text"
-				className="qnaInput"
+				id="will-input"
 				value={input}
 				onChange={handleChange}
 				maxLength={type === "ownerName" ? 20 : 200}
 				placeholder={`${type === "ownerName" ? 20 : 200}자 이하`}
 				required
+				autoFocus
 			/>
-		
 		</InputWrapper>
 	);
 };
 
 export default InputPart;
-const InputWrapper=styled(RowContainer)`
+const InputWrapper = styled(RowContainer)`
 	align-items: flex-start;
-    padding: 10px 0;
-    gap: 10px;
-`
-const InputMark=styled.span`
-	color: #F5DE0E;
-    font-size: x-large;
-`
-const TextInput=styled(TextareaAutosize)`
-    background-color:transparent;
-	color: white;
-    font-size: x-large;
-  	width: 100%;
-  	margin-bottom: 25px;
-	font-family: 'NeoDunggeunmo';
-    border: 0;
+	padding: 10px 0;
+	gap: 10px;
+`;
+const InputMark = styled.span`
+	color: #f5de0e;
+	font-size: large;
+`;
+const TextInput = styled(TextareaAutosize)`
+	font-size: large;
 	&::placeholder {
-       color: white;
-	   opacity: 50%;
-   }
-`
+		color: white;
+		opacity: 50%;
+	}
+`;
