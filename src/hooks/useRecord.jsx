@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import styled from "styled-components";
+
 const useRecord = () => {
 	const [stream, setStream] = useState();
 	const [media, setMedia] = useState();
 	const [onRec, setOnRec] = useState(false);
 	const [source, setSource] = useState();
 	const [analyser, setAnalyser] = useState();
-	// const [hasRecord, setHasRecord] = useState(false);
 	const [recordFile, setRecordFile] = useState();
 	const [time, setTime] = useState();
 
 	const [audio, setAudio] = useState();
 	const [audioURL, setAudioURL] = useState();
 	const handleRecord = () => {
-		// setHasRecord(false);
 		const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
 		const analyser = audioCtx.createScriptProcessor(0, 1, 1);
@@ -80,8 +78,6 @@ const useRecord = () => {
 			});
 			setRecordFile(sound);
 		};
-
-		// setHasRecord(true);
 	};
 
 	const [onPlay, setOnPlay] = useState(false);
